@@ -1,0 +1,65 @@
+/* ///////////////////////////// Layout .entete */
+
+.entete {
+  background-color: #ffffff;
+  border-bottom: 1px solid #ccc;
+  padding: 1rem 2rem;
+
+  &__contenu {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    width: 75px;
+    height: 75px;
+  }
+
+  /* ///////////////////////////// Navigation */
+  &__nav {
+    margin: 0 2rem 0 auto;
+  }
+
+  &__menu {
+    display: flex;
+    list-style-type: none;
+    gap: 1rem;
+  }
+
+  &__menu-item a {
+    display: block;
+    padding: 0.5rem 1rem;
+    background-color: beige;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    border-radius: 4px;
+  }
+
+  &__menu-item a:hover {
+    background-color: rgb(233, 227, 177);
+  }
+}
+
+
+
+@media (max-width: 768px) {
+  .entete__contenu {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .entete__menu {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .recherche {
+    width: 100%;
+    margin-top: 1rem;
+  }
+}
+

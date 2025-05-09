@@ -1,0 +1,36 @@
+/* ///////////////////////////// Layout .galerie */
+
+.galerie {
+  padding: 2rem;
+  background-color: #fff;
+  text-align: center;
+
+  &__titre {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  &__contenu {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+
+  &__image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .galerie__image {
+    height: 140px;
+  }
+}

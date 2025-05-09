@@ -1,0 +1,235 @@
+@charset "UTF-8";
+/*
+Theme Name: thème-33w
+Theme URI: https://referenced.ca
+Author: Yasmine Arar
+Author URI: https://github.com/eddytuto
+Description: Thème de base développer dans le cadre du cours de Worpress
+Version: 1.0
+Tested up to: 6.2
+Requires PHP: 7.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: club-voyage
+*/
+/* Importation des  feuilles de style du thème */
+/* variables */
+/* Base */
+/* Layout */
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+}
+
+.global {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* ///////////////////////////// Layout .entete */
+.entete {
+  background-color: #ffffff;
+  border-bottom: 1px solid #ccc;
+  padding: 1rem 2rem;
+  /* ///////////////////////////// Navigation */
+}
+.entete__contenu {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+.entete__logo {
+  width: 75px;
+  height: 75px;
+}
+.entete__nav {
+  margin: 0 2rem 0 auto;
+}
+.entete__menu {
+  display: flex;
+  list-style-type: none;
+  gap: 1rem;
+}
+.entete__menu-item a {
+  display: block;
+  padding: 0.5rem 1rem;
+  background-color: beige;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  border-radius: 4px;
+}
+.entete__menu-item a:hover {
+  background-color: rgb(233, 227, 177);
+}
+
+@media (max-width: 768px) {
+  .entete__contenu {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .entete__menu {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .recherche {
+    width: 100%;
+    margin-top: 1rem;
+  }
+}
+/* ///////////////////////////// Layout .formulaire */
+.formulaire {
+  padding: 2rem;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+.formulaire__formulaire {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.formulaire__champ {
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  min-width: 200px;
+  flex: 1;
+}
+.formulaire__bouton {
+  background-color: #1e90ff;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.formulaire__bouton:hover {
+  background-color: #0066cc;
+}
+
+@media (max-width: 768px) {
+  .formulaire__formulaire {
+    flex-direction: column;
+    align-items: center;
+  }
+  .formulaire__champ {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #e0dddd;
+}
+.hero__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.hero__contenu {
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  color: white;
+  max-width: 600px;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+.hero__titre {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+.hero__description {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+.hero__contact {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+.hero__bouton {
+  background-color: #1e90ff;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.hero__bouton:hover {
+  background-color: #0066cc;
+}
+
+@media (max-width: 768px) {
+  .hero__contenu {
+    top: 10%;
+    left: 5%;
+    padding: 1.5rem;
+  }
+  .hero__titre {
+    font-size: 2rem;
+  }
+  .hero__description {
+    font-size: 0.9rem;
+  }
+}
+/* ///////////////////////////// Layout .galerie */
+.galerie {
+  padding: 2rem;
+  background-color: #fff;
+  text-align: center;
+}
+.galerie__titre {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+.galerie__contenu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+.galerie__image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+.galerie__image:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .galerie__image {
+    height: 140px;
+  }
+}
+/* ////////////////////////////////  composants *//*# sourceMappingURL=style.css.map */

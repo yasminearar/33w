@@ -1,8 +1,8 @@
 /*
 Theme Name: thème-33w
 Theme URI: https://referenced.ca
-Author: YASMINE ARAR
-Author URI: https://github.com/yasminearar
+Author: Yasmine Arar
+Author URI: https://github.com/eddytuto
 Description: Thème de base développer dans le cadre du cours de Worpress
 Version: 1.0
 Tested up to: 6.2
@@ -15,14 +15,21 @@ Text Domain: club-voyage
 /* Importation des  feuilles de style du thème */
 
 /* variables */
-@import "variable/couleurs";
+//@import "variable/couleurs";
 
 /* Base */
-@import "base/titre";
+@import "base/h1";
 
 /* Layout */
+@import "layout/general";
 @import "layout/entete";
+@import "layout/formulaire";
+@import "layout/hero";
+@import "layout/galerie";
 
-/* composants */
-@import "composants/bouton";
-@import "composants/menu";
+//@import "layout/entete";
+
+/* ////////////////////////////////  composants */
+
+//@import "composants/bouton";
+//@import "composants/menu";
