@@ -16,6 +16,8 @@
     <header class="entete">
       <div class="entete__contenu">
         <img src="images/logo.png" alt="" class="entete__logo" />
+        <label for="" class="entete__burger"></label>
+        <input type="checkbox" class= >
         <nav class="entete__nav">
           <ul class="entete__menu">
             <li class="entete__menu-item"><a href="#">Aventure</a></li>
