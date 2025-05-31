@@ -1,89 +1,124 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>prototype de la page d'accueil</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <header class="entete">
-      <div class="entete__contenu">
-        <img src="images/logo.png" alt="" class="entete__logo" />
-        <label for="" class="entete__burger"></label>
-        <input type="checkbox" class= >
-        <nav class="entete__nav">
-          <ul class="entete__menu">
-            <li class="entete__menu-item"><a href="#">Aventure</a></li>
-            <li class="entete__menu-item"><a href="#">Culturel</a></li>
-            <li class="entete__menu-item"><a href="#">Zen</a></li>
-            <li class="entete__menu-item"><a href="#">Sport</a></li>
-            <li class="entete__menu-item"><a href="#">Croisière</a></li>
-            <li class="entete__menu-item"><a href="#">Repos</a></li>
-          </ul>
-        </nav>
-        <form class="recherche" action="">
-          <input class="recherche__input" type="search" name="" id="" />
-          <button class="recherche__bouton">
-            <img
-              src="https://s2.svgbox.net/hero-solid.svg?ic=search&color=000"
-              width="32"
-              height="32"
-            />
-          </button>
-        </form>
-      </div>
-    </header>
+<?php get_header() ?>
     <section class="hero">
-      <img src="images/maldives.jpg" alt="image hero">
       <div class="hero__contenu">
         <h1 class="hero__titre">Club de voyage</h1>
+
         <p class="hero__description">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur
-          incidunt quas eius totam veniam, molestiae officiis cupiditate ut
-          possimus tempore veritatis illum dignissimos, pariatur atque nulla
-          architecto a natus voluptatibus!
+          Bienvenue au Club de Voyage, votre partenaire privilégié pour découvrir le monde autrement. 
+          Que vous rêviez de plages paradisiaques, de montagnes majestueuses ou de villes vibrantes, 
+          nous vous proposons des expériences sur mesure, authentiques et inoubliables. 
+          Rejoignez notre communauté de voyageurs passionnés et laissez-vous inspirer par des destinations uniques.
         </p>
-        <p>info@mondovoyages.ca<br>305, rue Sherbrooke, Montréal<br>(514) 456-7893</p>
-        <button>S'inscrire</button>
+
+        <p class="hero__contact">
+          info@mondovoyages.ca<br />
+          305, rue Sherbrooke, Montréal<br />
+          (514) 456-7893
+        </p>
+
+        <button class="hero__bouton">S'inscrire</button>
+
+        <div class="hero__reseaux">
+          <a href="#" aria-label="Facebook">
+            <img src="<?php echo get_template_directory_uri(); ?>/images/facebook.svg" alt="Facebook" class="hero__reseau-icon" />
+          </a>
+          <a href="#" aria-label="Instagram">
+            <img src="<?php echo get_template_directory_uri(); ?>/images/instagram.svg" alt="Instagram" class="hero__reseau-icon" />
+          </a>
+        </div>
       </div>
     </section>
 
-    <!-- Formulaire d'inscription -->
     <section class="formulaire">
-      <form>
-        <input type="text" placeholder="Nom">
-        <input type="text" placeholder="Prénom">
-        <input type="email" placeholder="Courriel">
-        <input type="tel" placeholder="Téléphone">
-        <input type="text" placeholder="Destination souhaitée">
-        <button type="submit">S'inscrire</button>
+      <form class="formulaire__formulaire">
+        <input class="formulaire__champ" type="text" placeholder="Écrivez votre nom" />
+        <input class="formulaire__champ" type="text" placeholder="Écrivez votre prénom" />
+        <input class="formulaire__champ" type="email" placeholder="Écrivez votre courriel" />
+        <input class="formulaire__champ" type="tel" placeholder="Écrivez votre téléphone" />
+        <button class="formulaire__bouton" type="submit">S'inscrire</button>
       </form>
     </section>
 
-    <section class="galerie">
-  <h2 class="galerie__titre">Nos destinations favorites</h2>
-  <div class="galerie__contenu">
-    <img src="images/acores.jpg" alt="Plage" class="galerie__image">
-    <img src="images/image1.jfif" alt="Lac de montagne" class="galerie__image">
-    <img src="images/image2.jfif" alt="Village italien" class="galerie__image">
-    <img src="images/image4.jfif" alt="Montagne enneigée" class="galerie__image">
-    <img src="images/images3.jfif" alt="Temple asiatique" class="galerie__image">
-    <img src="images/italy.jpg" alt="Route forêt automne" class="galerie__image">
-    <img src="images/city.jpg" alt="Champ de lavande" class="galerie__image">
-    <img src="images/palm-trees.jpg" alt="Canyon" class="galerie__image">
-    <img src="images/lin-zhi.jpg" alt="Ville de nuit" class="galerie__image">
-    <img src="images/waterfall.jpg" alt="Cascade tropicale" class="galerie__image">
-  </div>
-</section>
+    <section class="populaire">
+      <h2 class="populaire__titre">Nos destinations favorites</h2>
+        <div class="populaire__contenu">
 
+          <article class="populaire__carte">
+            <img src="<?php echo get_template_directory_uri(); ?>/images/Suisse.jpg" alt="Paysage de la Suisse" class="populaire__image">
+            <h3 class="populaire__sous-titre">Suisse</h3>
+            <p class="populaire__texte">Découvrez les Alpes suisses, entre lacs cristallins et villages pittoresques.</p>
+          </article>
+
+          <article class="populaire__carte">
+            <img src="<?php echo get_template_directory_uri(); ?>/images/Kabylie.jpg" alt="Paysage de la Kabylie" class="populaire__image">
+            <h3 class="populaire__sous-titre">Kabylie, Algérie</h3>
+            <p class="populaire__texte">Entre montagnes majestueuses et traditions ancestrales, la Kabylie vous émerveillera.</p>
+          </article>
+
+          <article class="populaire__carte">
+            <img src="<?php echo get_template_directory_uri(); ?>/images/venice.jpg" alt="Venise, Italie" class="populaire__image">
+            <h3 class="populaire__sous-titre">Venise, Italie</h3>
+            <p class="populaire__texte">Naviguez sur les canaux romantiques et explorez l’architecture unique de Venise.</p>
+          </article>
+
+          <article class="populaire__carte">
+            <img src="<?php echo get_template_directory_uri(); ?>/images/Espagne.jpg" alt="Vue de l'Espagne" class="populaire__image">
+            <h3 class="populaire__sous-titre">Espagne</h3>
+            <p class="populaire__texte">Vibrante et ensoleillée, l’Espagne séduit par ses cultures, plages et gastronomie.</p>
+          </article>
+
+          <article class="populaire__carte">
+            <img src="<?php echo get_template_directory_uri(); ?>/images/Malaisie.jpg" alt="Paysage de la Malaisie" class="populaire__image">
+            <h3 class="populaire__sous-titre">Malaisie</h3>
+            <p class="populaire__texte">Des plages paradisiaques aux jungles tropicales, une destination riche et diversifiée.</p>
+          </article>
+
+          <article class="populaire__carte">
+            <img src="<?php echo get_template_directory_uri(); ?>/images/italy.jpg" alt="Village italien" class="populaire__image">
+            <h3 class="populaire__sous-titre">Italie</h3>
+            <p class="populaire__texte">Explorez les villages colorés, les collines toscanes et la douceur de vivre italienne.</p>
+          </article>
+
+          <article class="populaire__carte">
+            <img src="<?php echo get_template_directory_uri(); ?>/images/Punta-cana.jpg" alt="Plage de Punta Cana" class="populaire__image">
+            <h3 class="populaire__sous-titre">Punta Cana, République dominicaine</h3>
+            <p class="populaire__texte">Sable blanc, mer turquoise et palmiers pour des vacances de rêve sous les tropiques.</p>
+          </article>
+
+          <article class="populaire__carte">
+            <img src="<?php echo get_template_directory_uri(); ?>/images/Chine.jpg" alt="Paysage de la rivière Li à Yangshuo, Chine" class="populaire__image">
+            <h3 class="populaire__sous-titre">Yangshuo, Chine</h3>
+            <p class="populaire__texte">Admirez les montagnes karstiques et la sérénité de la rivière Li.</p>
+          </article>
+
+          <article class="populaire__carte">
+            <img src="<?php echo get_template_directory_uri(); ?>/images/Mexique.jpg" alt="Plage de Tulum, Mexique" class="populaire__image">
+            <h3 class="populaire__sous-titre">Tulum, Mexique</h3>
+            <p class="populaire__texte">Combinez plages idylliques, histoire maya et ambiance festive mexicaine.</p>
+          </article>
+
+          <article class="populaire__carte">
+            <img src="<?php echo get_template_directory_uri(); ?>/images/Alger.jpg" alt="Vue nocturne d'Alger" class="populaire__image">
+            <h3 class="populaire__sous-titre">Alger, Algérie</h3>
+            <p class="populaire__texte">Découvrez la beauté d’Alger la blanche, illuminée à la nuit tombée.</p>
+          </article>
+
+        </div>
     </section>
-    <footer class="piedpage">fjfjfg</footer>
-  </body>
-</html>
+
+
+    <section class="populaire">
+      <?php if (have_posts()) {
+        while (have_posts()) {
+          the_post(); ?>
+          <h1><?php the_title(); ?></h1>
+      <?php the_content();
+      }
+      } ?>
+    </section>
+    
+<?php get_footer();
+
+    
+ 
+
