@@ -8,13 +8,13 @@
 ?>
 
 <?php get_header() ?>
-<h1>trace seulement à retirer -------------- index.php -----------</h1>
+<h1>trace seulement à retirer -------------- category.php -----------</h1>
 <section class="populaire">
   <?php if (have_posts()) {
     while (have_posts()) {
       /* affiche l'image « mise en avant » miniature */
       the_post();
-      get_template_part('gabarit/carte');
+      the_post_thumbnail('thumbnail');
   ?>
       <h1><?php
           /* affiche le titre pricipal du « post » */
@@ -27,5 +27,3 @@
   } ?>
 </section>
 <?php get_footer();
-
-

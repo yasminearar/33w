@@ -22,24 +22,13 @@
             </figure>
 
         <input type="checkbox" class="chk__menu" id="chk__menu" />
-        <label for="chk__menu" class="entete__burger">
-          <img
+        <label for="chk__menu" class="entete__burger">          <img
             src="https://s2.svgbox.net/hero-outline.svg?ic=menu&color=000"
             width="32"
             height="32"
           />
         </label>
-        <input type="checkbox" class="chk__menu" id="chk__menu" />
             <nav class="entete__nav">
-                <!-- ul class="entete__menu">
-                    <li class="entete__menu-item"><a href="#">Aventure</a></li>
-                    <li class="entete__menu-item"><a href="#">Culturel</a></li>
-                    <li class="entete__menu-item"><a href="#">Zen</a></li>
-                    <li class="entete__menu-item"><a href="#">Sport</a></li>
-                    <li class="entete__menu-item"><a href="#">Croisière</a></li>
-                    <li class="entete__menu-item"><a href="#">Repos</a></li>
-                </ul -->
-
                 <?php wp_nav_menu(array(
                     "menu" => "principal",
                     'container'            => '',
@@ -48,17 +37,7 @@
 
                 )); ?>
 
-
-          <form class="recherche" action="">
-            <input class="recherche__input" type="search" />
-            <button class="recherche__bouton">
-              <img
-                src="https://s2.svgbox.net/hero-solid.svg?ic=search&color=000"
-                width="32"
-                height="32"
-              />
-            </button>
-          </form>
+          <?php get_search_form(); ?>
         </nav>
       </div>
     </header>

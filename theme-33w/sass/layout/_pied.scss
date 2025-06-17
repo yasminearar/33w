@@ -1,45 +1,133 @@
-/* ///////////////////////////// Layout .pied */
+.piedpage {
+ background-color: #b34a1d;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  position: relative;
+  padding: 3rem 1rem 1rem;
+  overflow: hidden;
 
-.pied {
-  background-color: #333;
-  color: #fff;
-  padding: 1rem 2rem;
-  font-size: 0.9rem;
-  font-weight: 600;
-
-  &__contenu {
+  &__ligne-1 {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
     flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  }
 
-    @media screen and (max-width: $point-rupture) {
-      flex-direction: column;
-      text-align: center;
-      gap: 1rem;
+  &__lien,
+  &__adresse,
+  &__recherche,
+  &__description {
+    flex: 1 1 250px;
+  }
+
+  &__lien h2,
+  &__adresse h2,
+  &__description h2 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 2px #000;
+  }
+
+  &__lien ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin-bottom: 0.4rem;
+
+      a {
+        color: white;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
     }
   }
 
-  &__texte {
-    margin: 0;
+  &__recherche {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 1rem;
+
+    input {
+      flex: 1;
+      padding: 0.5rem;
+      border: none;
+      border-radius: 4px 0 0 4px;
+    }
+
+    button {
+      padding: 0.5rem 1rem;
+      border: none;
+      background-color: #b34a1d;
+      color: white;
+      border-radius: 0 4px 4px 0;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #df8541;
+      }
+    }
   }
 
-  &__liens {
+  &__description p {
+    line-height: 1.5;
+    text-shadow: 1px 1px 2px #000;
+  }
+
+  &__ligne-2 {
+    margin-top: 2rem;
+    text-align: center;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  &__icone {
+    margin-top: 1rem;
     display: flex;
+    justify-content: center;
     gap: 1rem;
 
-    @media screen and (max-width: $point-rupture) {
-      flex-direction: column;
+    i {
+      font-size: 1.3rem;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+
+      &:hover {
+        transform: scale(1.2);
+      }
     }
   }
 
-  &__lien {
-    color: #ccc;
-    text-decoration: none;
+  @media (max-width: 768px) {
+    &__ligne-1 {
+      flex-direction: column;
+      padding: 1.5rem;
+    }
 
-    &:hover {
-      color: rgb(219, 135, 51);
-      text-decoration: underline;
+    &__recherche {
+      flex-direction: column;
+      gap: 0.5rem;
+
+      input,
+      button {
+        width: 100%;
+        border-radius: 4px;
+      }
+    }
+
+    &__icone {
+      flex-wrap: wrap;
     }
   }
 }
+

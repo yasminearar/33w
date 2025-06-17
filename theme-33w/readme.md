@@ -3,10 +3,8 @@
 
 #### Auteur : Yasmine Arar 
 
-#### Adresse de la github-page : 
-
+#### Adresse de la github-page: 
 https://yasminearar.github.io/33w/theme-33w/
-
 
 #### Adresse du site distant sur WHC:
 
