@@ -8,7 +8,7 @@
 ?>
 
 <?php get_header() ?>
-<h1>trace seulement à retirer -------------- index.php -----------</h1>
+
 <section class="populaire">
   <div class="populaire__contenu">
     <?php if (have_posts()) {
