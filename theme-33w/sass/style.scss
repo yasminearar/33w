@@ -26,12 +26,13 @@ Text Domain: club-voyage
 @import "layout/entete";
 @import "layout/formulaire";
 @import "layout/hero";
-@import 'layout/populaire';
+
 @import "layout/pied";
 
 //@import "layout/entete";
 
 /* ////////////////////////////////  composants */
 @import "composants/recherche";
+@import "composants/carte";
 //@import "composants/bouton";
 //@import "composants/menu";

@@ -10,6 +10,8 @@
 <?php get_header() ?>
 <h1>trace seulement à retirer -------------- category.php -----------</h1>
 <section class="populaire">
+  <h2><?php single_cat_title() ?></h2>
+  <?= category_description(); ?>
   <?php if (have_posts()) {
     while (have_posts()) {
       /* affiche l'image « mise en avant » miniature */
@@ -27,3 +29,4 @@
   } ?>
 </section>
 <?php get_footer();
+

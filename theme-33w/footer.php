@@ -24,7 +24,7 @@
         </section>
         <section class="piedpage__ligne-2">
             <div class="piedpage__icone">
-              <?php get_template_part('gabarit/footer-icons'); ?>
+              <?php get_template_part('gabarit/icone'); ?>
             </div>
         </section>
 

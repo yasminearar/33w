@@ -1,10 +1,16 @@
-<?php
-
-/**
- * Template-part galerie.php
- * Permet d'afficher la galerie
- */
-?>
-<article class='populaire'>
-    <?php the_content(); ?>
-</article>
+<div class="conteneur global">
+    <?php if (have_posts()) {
+        while (have_posts()) {
+            /* affiche l'image « mise en avant » miniature */
+            the_post();
+    ?>
+            <?php
+            if (in_category('galerie')) {
+                get_template_part("gabarit/galerie");
+            } else {
+                get_template_part("gabarit/carte");
+            ?>
+    <?php }
+        }
+    } ?>
+</div>

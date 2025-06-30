@@ -1,49 +1,62 @@
-<?php
+<?php get_header(); ?>
+<main>
+    <div class="hero">
+        <section class="hero__contenu">
+            <h1 class="hero__titre">Club de voyage</h1>
+            <p class="hero__description">
+                Bienvenue au Club de Voyage, votre partenaire privilégié pour découvrir le monde autrement. 
+                Que vous rêviez de plages paradisiaques, de montagnes majestueuses ou de villes vibrantes, 
+                nous vous proposons des expériences sur mesure, authentiques et inoubliables. 
+                Rejoignez notre communauté de voyageurs passionnés et laissez-vous inspirer par des destinations uniques.
+            </p>
+            <p class="hero__contact">
+              info@mondovoyages.ca<br />
+              305, rue Sherbrooke, Montréal<br />
+              (514) 456-7893
+            </p>
 
-/**
- * Le modèle  front-page
- * Permet d'afficher la page d'accueil 
- */
-?>
+            <button class="hero__bouton">S'inscrire</button>
+            <div class="reseaux-sociaux">
+                <?php get_template_part('gabarit/icone'); ?>
+            </div>
+        </section>
+    </div>
 
-<?php get_header() ?>
-<h1>trace seulement à retirer -------------- Front-page.php -----------</h1>
-<section class="hero">
-  <div class="hero__contenu">
-    <h1 class="hero__titre">Club de voyage</h1>
-    <p class="hero__description">
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur
-      incidunt quas eius totam veniam, molestiae officiis cupiditate ut
-      possimus tempore veritatis illum dignissimos, pariatur atque nulla
-      architecto a natus voluptatibus!
-    </p>
-  </div>
-</section>
+        <section class="formulaire">
+            <form class="formulaire__formulaire">
+                <input class="formulaire__champ" type="text" placeholder="Écrivez votre nom" />
+                <input class="formulaire__champ" type="text" placeholder="Écrivez votre prénom" />
+                <input class="formulaire__champ" type="email" placeholder="Écrivez votre courriel" />
+                <input class="formulaire__champ" type="tel" placeholder="Écrivez votre téléphone" />
+                <button class="formulaire__bouton" type="submit">S'inscrire</button>
+            </form>
+        </section>
+    
+
 <section class="populaire">
-  <div class="conteneur global">
+  <div class="populaire__contenu">
     <?php if (have_posts()) {
       while (have_posts()) {
         /* affiche l'image « mise en avant » miniature */
         the_post();
 
-    ?>
-        <article class="conteneur__carte">
-          <?php the_post_thumbnail('thumbnail'); ?>
 
+        ?>
+        <article class="populaire__carte">
+          <?php the_post_thumbnail('miniature'); ?>
 
-          <h2><?php
-              /* affiche le titre pricipal du « post » */
-              the_title(); ?></h2>
+          <h3><?php 
+          /* affiche le titre du post */
+          the_title(); ?></h3>
           <p><?php
-              /* cette fontion permet d'afficher l'ensemble du contenu du post (article ou page)*/
-              // the_content();
-              $lien = "<a href=" . get_permalink() . ">Suite</a>";
-              echo wp_trim_words(get_the_excerpt(), 10, $lien);
-              //wp_trim_words()
-              ?></p>
+            $lien = "<a href=" . get_permalink() .">suite</a>"; // Récupère le lien de l'article
+            echo wp_trim_words(get_the_excerpt(), 10, $lien); 
+          ?></p>  <!-- Affiche un extrait de 10 mots -->
         </article>
-    <?php }
-    } ?>
+        <?php
+      }
+    }?>
   </div>
 </section>
+</main>
 <?php get_footer();

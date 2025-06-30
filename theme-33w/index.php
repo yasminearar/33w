@@ -10,21 +10,36 @@
 <?php get_header() ?>
 <h1>trace seulement à retirer -------------- index.php -----------</h1>
 <section class="populaire">
-  <?php if (have_posts()) {
-    while (have_posts()) {
-      /* affiche l'image « mise en avant » miniature */
-      the_post();
-      get_template_part('gabarit/carte');
-  ?>
-      <h1><?php
+  <div class="populaire__contenu">
+    <?php if (have_posts()) {
+      while (have_posts()) {
+        /* affiche l'image « mise en avant » miniature */
+        the_post();
+        the_post_thumbnail('thumbnail');
+    ?>
+
+      <h2 class="populaire__titre"><?php
           /* affiche le titre pricipal du « post » */
-          the_title(); ?></h1>
+          the_title(); ?></h2>
+          
+          <p><?php
+          /* affiche un extrait du contenu du « post » */
+          the_excerpt(); ?></p>
+          <a href="<?php the_permalink(); ?>">Lire la suite</a>
+
 
   <?php
       /* cette fontion permet d'afficher l'ensemble du contenu du post (article ou page)*/
       the_content();
+      if (in_category('galerie')) {
+        get_template_part("gabarit/galerie");
+      } else {
+        get_template_part("gabarit/carte");
+      }
+
     }
   } ?>
+  </div>
 </section>
 <?php get_footer();
 
