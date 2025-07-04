@@ -33,30 +33,37 @@
         </section>
     
 
-<section class="populaire">
-  <div class="populaire__contenu">
-    <?php if (have_posts()) {
-      while (have_posts()) {
-        /* affiche l'image « mise en avant » miniature */
-        the_post();
+  <section class="populaire">
+    <div class="populaire__contenu">
+      <h2><?php single_cat_title() ?></h2>
+      <?php if (have_posts()) {
+        while (have_posts()) {
+          /* affiche l'image « mise en avant » miniature */
+          the_post();
 
+          ?>
+            
+            <?php
+            if (in_category('galerie')) {
+              get_template_part('gabarit/galerie');
+            } else { 
+              get_template_part('gabarit/carte');
+              ?>
+              
+            <article class="populaire__carte">
+            <?php the_post_thumbnail('miniature'); ?>
+            <h3><?php the_title(); ?></h3>
+            <?php
 
-        ?>
-        <article class="populaire__carte">
-          <?php the_post_thumbnail('miniature'); ?>
-
-          <h3><?php 
-          /* affiche le titre du post */
-          the_title(); ?></h3>
-          <p><?php
-            $lien = "<a href=" . get_permalink() .">suite</a>"; // Récupère le lien de l'article
-            echo wp_trim_words(get_the_excerpt(), 10, $lien); 
-          ?></p>  <!-- Affiche un extrait de 10 mots -->
-        </article>
-        <?php
-      }
-    }?>
-  </div>
-</section>
+              $lien = "<a href=" . get_permalink() .">suite</a>"; 
+              echo "<p>" . wp_trim_words(get_the_excerpt(), 10, $lien) . "</p>";
+            
+            } ?> 
+          </article>
+          <?php
+        }
+      }?>
+    </div>
+  </section>
 </main>
 <?php get_footer();

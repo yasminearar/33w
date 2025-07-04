@@ -71,6 +71,11 @@ body {
   width: 100%;
 }
 
+.custom-logo {
+  width: 75px;
+  height: 75px;
+}
+
 .entete {
   background-color: #f5f5dc;
   position: relative;
@@ -452,23 +457,27 @@ body {
 }
 
 .populaire {
-  padding: 2rem;
+  padding: 1rem;
   background-color: #fff;
   text-align: center;
-}
-.populaire__titre {
-  font-size: 2rem;
-  margin-bottom: 2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 .populaire__contenu {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 @media (max-width: 600px) {
   .populaire__contenu {
-    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
   }
+}
+.populaire__galerie {
+  flex: 1 0 100%;
+  margin-bottom: 2rem;
+}
+.populaire__galerie:hover {
+  transform: translateY(-5px);
 }
 .populaire__carte {
   background-color: #f8f8f8;
@@ -480,29 +489,45 @@ body {
   text-align: left;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  flex: 0 0 calc((100% - 8rem) / 5);
+  margin-bottom: 2rem;
   transition: transform 0.3s ease;
 }
 .populaire__carte:hover {
   transform: translateY(-5px);
 }
-.populaire__image {
+.populaire__carte img {
   width: 100%;
-  height: 180px;
-  object-fit: cover;
+  height: auto;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
 }
-@media (max-width: 600px) {
-  .populaire__image {
-    height: 140px;
-  }
-}
-.populaire__sous-titre {
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin: 0.75rem 1rem 0 1rem;
+.populaire__carte h3 {
+  font-size: 1.2rem;
   color: #333;
+  margin: 0.5rem 0;
 }
-.populaire__texte {
+.populaire__carte p {
   font-size: 0.95rem;
-  color: #666;
-  margin: 0.5rem 1rem 1rem 1rem;
+  color: #444;
+  margin: 0.3rem 0;
+}
+.populaire__carte a {
+  color: rgb(186, 77, 29);
+  text-decoration: none;
+  font-weight: 500;
+}
+.populaire__carte a:hover {
+  text-decoration: underline;
+}
+.populaire__carte__temperature {
+  font-weight: bold;
+  padding-left: 1rem;
+  position: relative;
+}
+.populaire__carte__temperature::before {
+  content: "🌡️";
+  position: absolute;
+  left: 0;
 }/*# sourceMappingURL=style.css.map */
