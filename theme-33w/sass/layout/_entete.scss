@@ -112,6 +112,12 @@
       
     }
   }
+
+  &__current-menu-item a {
+    color: rgb(188, 114, 82);
+    font-weight: 700;
+    text-decoration: underline;
+  }
 }
 
 

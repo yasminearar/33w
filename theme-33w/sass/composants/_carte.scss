@@ -4,6 +4,13 @@
   text-align: center;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 
+   &__titre {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: rgb(186, 77, 29);
+  }
+
   &__contenu {
     display: flex;
     justify-content: space-between;
@@ -27,26 +34,20 @@
     border-radius: 8px;
     border: 2px solid rgb(186, 77, 29); 
     overflow: hidden;
-    padding: 1rem;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     text-align: left;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    flex: 0 0 calc((100% - 4 * 2rem) / 5); // 5 colonnes
+    flex: 1 0 300px;
     margin-bottom: 2rem;
     transition: transform 0.3s ease;
+    padding: 10px;
 
     &:hover {
       transform: translateY(-5px);
     }
 
-    img {
-      width: 100%;
-      height: auto;
-      border-radius: 4px;
-      margin-bottom: 0.5rem;
-    }
 
     h3 {
       font-size: 1.2rem;
@@ -68,15 +69,42 @@
       &:hover {
         text-decoration: underline;
       }
+
+      @media (max-width: 1024px) {
+      flex: 0 0 calc((100% - 2 * 2rem) / 3); // 3 colonnes
+      }
+
+      @media (max-width: $point-rupture) {
+      flex: 0 0 calc((100% - 1 * 2rem) / 2); // 2 colonnes
+      }
     }
 
     &__temperature {
       font-weight: bold;
-      padding-left: 1rem;
+      padding-left: 2rem;
       position: relative;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
 
-      &::before {
-        content: "🌡️";
+      // Température minimum ❄️
+      &--min::before {
+        content: "❄️";
+        position: absolute;
+        left: 0;
+      }
+
+      // Température moyenne 🌤️ (soleil + nuage)
+      &--moyenne::before {
+        content: "🌤️";
+        position: absolute;
+        left: 0;
+      }
+
+      // Température maximum 🔥
+      &--max::before {
+        content: "🔥";
         position: absolute;
         left: 0;
       }

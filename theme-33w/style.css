@@ -161,6 +161,11 @@ body {
   background-color: transparent;
   text-decoration: underline;
 }
+.entete__current-menu-item a {
+  color: rgb(186, 77, 29);
+  font-weight: 700;
+  text-decoration: underline;
+}
 
 /* ///////////////////////////// Layout .formulaire */
 .formulaire {
@@ -462,6 +467,12 @@ body {
   text-align: center;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
+.populaire__titre {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: rgb(186, 77, 29);
+}
 .populaire__contenu {
   display: flex;
   justify-content: space-between;
@@ -503,6 +514,11 @@ body {
   border-radius: 4px;
   margin-bottom: 0.5rem;
 }
+@media (max-width: 600px) {
+  .populaire__carte img {
+    height: 140px;
+  }
+}
 .populaire__carte h3 {
   font-size: 1.2rem;
   color: #333;
@@ -521,13 +537,37 @@ body {
 .populaire__carte a:hover {
   text-decoration: underline;
 }
+@media (max-width: 1024px) {
+  .populaire__carte a {
+    flex: 0 0 calc((100% - 4rem) / 3);
+  }
+}
+@media (max-width: 600px) {
+  .populaire__carte a {
+    flex: 0 0 calc((100% - 2rem) / 2);
+  }
+}
 .populaire__carte__temperature {
   font-weight: bold;
-  padding-left: 1rem;
+  padding-left: 2rem;
   position: relative;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
-.populaire__carte__temperature::before {
-  content: "🌡️";
+.populaire__carte__temperature--min::before {
+  content: "❄️";
+  position: absolute;
+  left: 0;
+}
+.populaire__carte__temperature--moyenne::before {
+  content: "🌤️";
+  position: absolute;
+  left: 0;
+}
+.populaire__carte__temperature--max::before {
+  content: "🔥";
   position: absolute;
   left: 0;
 }/*# sourceMappingURL=style.css.map */
