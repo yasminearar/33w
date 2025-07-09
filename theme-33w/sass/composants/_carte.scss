@@ -3,6 +3,7 @@
   background-color: #fff;
   text-align: center;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+ 
 
    &__titre {
     font-size: 2rem;
@@ -13,14 +14,15 @@
 
   &__contenu {
     display: flex;
-    justify-content: space-between;
+    justify-content: center; // <-- centrer les cartes horizontalement
     flex-wrap: wrap;
-   
+    gap: 2rem; // un petit espace entre les cartes
+    
     @media (max-width: $point-rupture) {
       justify-content: center;
     }
-    
   }
+
   &__galerie {
     flex: 1 0 100%;
     margin-bottom: 2rem;
@@ -35,14 +37,16 @@
     border: 2px solid rgb(186, 77, 29); 
     overflow: hidden;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    text-align: left;
+    align-items: center;
+    text-align: center;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; 
     justify-content: space-between;
-    flex: 1 0 300px;
+    flex: 0 0 calc((100% - 2 * 2rem) / 3);
     margin-bottom: 2rem;
     transition: transform 0.3s ease;
     padding: 10px;
+    
 
     &:hover {
       transform: translateY(-5px);
@@ -50,66 +54,101 @@
 
 
     h3 {
+      
       font-size: 1.2rem;
       color: #333;
       margin: 0.5rem 0;
     }
 
     p {
+      
       font-size: 0.95rem;
       color: #444;
       margin: 0.3rem 0;
     }
 
     a {
-      color: rgb(186, 77, 29);
-      text-decoration: none;
+      
+      display: inline-block;
+      background-color: rgb(186, 77, 29);
+      color: #fff;
+      padding: 0.1rem 0.3rem;
+      border-radius: 6px;
       font-weight: 500;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+      margin-right: 0.8rem;
+      margin-top: 1rem;
+      
 
       &:hover {
-        text-decoration: underline;
-      }
-
-      @media (max-width: 1024px) {
-      flex: 0 0 calc((100% - 2 * 2rem) / 3); // 3 colonnes
-      }
-
-      @media (max-width: $point-rupture) {
-      flex: 0 0 calc((100% - 1 * 2rem) / 2); // 2 colonnes
+        background-color: rgb(150, 60, 20);
+        text-decoration: none;
       }
     }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: inline;
+
+      li {
+        
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: inline;
+
+      }
+    }
+      
 
     &__temperature {
       font-weight: bold;
-      padding-left: 2rem;
       position: relative;
-      margin-bottom: 0.5rem;
+      margin-bottom: 3rem;
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      justify-content: center; 
+      gap: 1rem;
+      text-align: center;
+      padding-left: 0;
+     
 
-      // Température minimum ❄️
-      &--min::before {
-        content: "❄️";
-        position: absolute;
-        left: 0;
-      }
-
-      // Température moyenne 🌤️ (soleil + nuage)
-      &--moyenne::before {
-        content: "🌤️";
-        position: absolute;
-        left: 0;
-      }
-
-      // Température maximum 🔥
-      &--max::before {
-        content: "🔥";
-        position: absolute;
-        left: 0;
-      }
+    // Température minimum ❄️
+    &--min::before {
+      content: "❄️";
+      margin-right: 0.5rem;
     }
 
+    // Température moyenne 🌤️
+    &--moyenne::before {
+      content: "🌤️";
+      margin-right: 0.5rem;
+    }
+
+    // Température maximum 🔥
+    &--max::before {
+      content: "🔥";
+      margin-right: 0.5rem;
+    }
+  }
+
+    &__note-client {
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+      justify-content: center;
+      margin-top: 0.5rem;
+      padding-left: 2rem;
+      position: relative;
+
+      &::before {
+        content: "⭐";
+        margin-right: 0.5rem;
+      }
+    }
     
   }
 }

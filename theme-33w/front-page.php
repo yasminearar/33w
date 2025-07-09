@@ -1,11 +1,12 @@
 <?php get_header(); ?>
-<main>
-    
-        <section class="hero" style="background-image: url('<?php echo get_template_directory_uri(); ?>/images/hero.jpg');">
-            <?php get_template_part('gabarit/hero'); ?>
-        </section>
-    
 
+  <section class="hero">
+  <div class="carrousel" style="background-image: url('<?= $hero_background[0] ?>'); opacity:1"></div>
+  <div class="carrousel" style="background-image: url('<?= $hero_background[1] ?>'); opacity:0"></div>
+  <div class="carrousel" style="background-image: url('<?= $hero_background[2] ?>'); opacity:0"></div>
+
+  <?php get_template_part("gabarit/hero"); ?>
+</section>
         <section class="formulaire">
             <form class="formulaire__formulaire">
                 <input class="formulaire__champ" type="text" placeholder="Écrivez votre nom" />
@@ -20,5 +21,5 @@
   <section class="populaire">
     <?php get_template_part('gabarit/populaire'); ?>
   </section>
-</main>
+
 <?php get_footer();

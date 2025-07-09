@@ -1,14 +1,19 @@
-<footer class="piedpage">
+
+<?php 
+$footer_couleur = "#b34a1d";
+vague("#f5f5dc", $footer_couleur); ?>
+<footer class="piedpage" style="background-color: <?= $footer_couleur ?>;">
     <div class="global">
         <section class="piedpage__ligne-1">
             <div class="piedpage__lien">
+                <h3>Nos suggestions de voyage</h3>
                 <?php wp_nav_menu(array(
                     "menu" => "externe",
                     "container" => "nav"
                 )) ?>
             </div>
             <div class="piedpage__adresse">
-                <h2>Adresse et recherche</h2>
+                <h3>Adresse et recherche</h3>
                 <p>3800, Sherbrook est, Montréal, Québec, Canada, H1X 2A2</p>
                 <p>514-254-7131</p>
                 <?php get_search_form() ?>
@@ -24,7 +29,7 @@
         </section>
         <section class="piedpage__ligne-2">
             <div class="piedpage__icone">
-              <?php get_template_part('gabarit/icone'); ?>
+              <?php icone_sociaux("#f5f5dc"); ?>
             </div>
         </section>
 

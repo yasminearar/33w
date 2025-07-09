@@ -2,16 +2,14 @@
 
 .hero {
   position: relative;
-  width: 100%;
   height: 100vh;
-  overflow: hidden;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   
 
-  &__image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+  
 
   &__contenu {
     position: absolute;
@@ -27,19 +25,29 @@
   }
 
   &__titre {
+    animation: anim-titre 1s .5s cubic-bezier(0.075, 0.82, 0.165, 1)forwards;
     font-size: 2.5rem;
     margin-bottom: 1rem;
     
   }
 
   &__description {
+    animation: anim-titre 1s .5s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
     font-size: 1.2rem;
     line-height: 1.5;
     margin-bottom: 1rem;
     
   }
 
-  &__contact {
+  &__auteur {
+    animation: anim-titre 1s .5s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+  }
+
+  &__adresse {
+    animation: anim-titre 1s .5s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
     font-size: 1rem;
     margin-bottom: 1rem;
     font-weight: bold;
@@ -62,7 +70,7 @@
   &__reseaux {
     margin-top: 1.5rem;
     display: flex;
-    gap: 1rem;
+    gap: 2rem;
     
 
     a {
@@ -85,7 +93,7 @@
 
   .hero__titre,
   .hero__description,
-  .hero__contact {
+  .hero__auteur {
   text-shadow: $text-shadow-par-defaut;
   }
 
@@ -112,4 +120,32 @@
   }
 }
 
+@keyframes anim-titre {
+  0% {
+    transform: translateY(-200px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
 
+@keyframes anim-description {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.carrousel {
+  position: absolute;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
