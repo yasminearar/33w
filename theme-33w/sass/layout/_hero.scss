@@ -39,19 +39,15 @@
     
   }
 
-  &__auteur {
-    animation: anim-titre 1s .5s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
-    font-size: 1rem;
-    margin-bottom: 1rem;
-    font-weight: bold;
-  }
-
+  &__auteur,
   &__adresse {
     animation: anim-titre 1s .5s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
     font-size: 1rem;
     margin-bottom: 1rem;
     font-weight: bold;
   }
+
+ 
 
   &__bouton {
     background-color: rgb(186, 77, 29);
@@ -74,6 +70,7 @@
     
 
     a {
+      
       display: inline-block;
     }
   }
@@ -93,7 +90,9 @@
 
   .hero__titre,
   .hero__description,
-  .hero__auteur {
+  .hero__auteur,
+  .hero__adresse,
+  .hero__reseaux {
   text-shadow: $text-shadow-par-defaut;
   }
 
@@ -149,3 +148,4 @@
   top: 0;
   left: 0;
 }
+

@@ -1,6 +1,9 @@
 
 <?php 
 $footer_couleur = "#b34a1d";
+$footer_adresse = get_theme_mod('footer_adresse', '3800, Sherbrook est, Montréal, Québec, Canada, H1X 2A2');
+$footer_telephone = get_theme_mod('footer_telephone', '514-254-7131');
+$footer_mission = get_theme_mod('footer_mission', "Notre mission est d'inspirer et d'informer nos membres...");
 vague("#f5f5dc", $footer_couleur); ?>
 <footer class="piedpage" style="background-color: <?= $footer_couleur ?>;">
     <div class="global">
@@ -14,8 +17,8 @@ vague("#f5f5dc", $footer_couleur); ?>
             </div>
             <div class="piedpage__adresse">
                 <h3>Adresse et recherche</h3>
-                <p>3800, Sherbrook est, Montréal, Québec, Canada, H1X 2A2</p>
-                <p>514-254-7131</p>
+                <p>3800, Sherbrook est, Montréal, Québec, Canada, H1X 2A2 : <?php echo $footer_adresse; ?></p>
+                <p>514-254-7131 : <?php echo $footer_telephone; ?></p>
                 <?php get_search_form() ?>
             </div>
 
@@ -23,8 +26,7 @@ vague("#f5f5dc", $footer_couleur); ?>
             <div class="piedpage__description">
               <h3>Mission du club</h3>
               <p>
-                Notre mission est d'inspirer et d'informer nos membres sur des destinations de voyage qui répondent à leurs attentes. Nous favorisons les échanges et le partage d’expériences à travers des activités sociales variées, telles que des rencontres, des conférences et des dîners.
-              </p>
+                Notre mission est d'inspirer et d'informer nos membres sur des destinations de voyage qui répondent à leurs attentes. Nous favorisons les échanges et le partage d’expériences à travers des activités sociales variées, telles que des rencontres, des conférences et des dîners : <?php echo $footer_mission; ?></p>
             </div>
         </section>
         <section class="piedpage__ligne-2">

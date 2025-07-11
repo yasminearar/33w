@@ -261,13 +261,7 @@ body {
   line-height: 1.5;
   margin-bottom: 1rem;
 }
-.hero__auteur {
-  animation: anim-titre 1s 0.5s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
-  font-size: 1rem;
-  margin-bottom: 1rem;
-  font-weight: bold;
-}
-.hero__adresse {
+.hero__auteur, .hero__adresse {
   animation: anim-titre 1s 0.5s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
   font-size: 1rem;
   margin-bottom: 1rem;
@@ -304,7 +298,9 @@ body {
 }
 .hero .hero__titre,
 .hero .hero__description,
-.hero .hero__auteur {
+.hero .hero__auteur,
+.hero .hero__adresse,
+.hero .hero__reseaux {
   text-shadow: 2px 2px 6px rgba(186, 77, 29, 0.6);
 }
 @media (max-width: 600px) {

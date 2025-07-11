@@ -9,6 +9,7 @@
 $hero_couleur = get_theme_mod('hero_couleur');
 $hero_auteur = get_theme_mod("hero_auteur", "Yasmine-Arar");
 $hero_adresse = get_theme_mod("hero_adresse", "305, rue Sherbrooke, Montréal");
+$hero_bouton = get_theme_mod('hero_bouton', "S'inscrire");
 ?>
 <style>
     .hero__contenu {
@@ -22,7 +23,10 @@ $hero_adresse = get_theme_mod("hero_adresse", "305, rue Sherbrooke, Montréal");
     <p class="hero__description">
         <?php bloginfo('description') ?>
     </p>
-    <p>Auteur du thème : <?php echo $hero_auteur; ?></p>
-    <p>Adresse du club : <?php echo $hero_adresse; ?></p>
-    <?php icone_sociaux($hero_couleur); ?>
+    <p class="hero__auteur">Auteur du thème : <?php echo $hero_auteur; ?></p>
+    <p class="hero__adresse">Adresse du club : <?php echo $hero_adresse; ?></p>
+    <button class="hero__bouton"><?php echo $hero_bouton; ?></button>
+    <div class="hero__reseaux">
+        <?php icone_sociaux($hero_couleur); ?>
+    </div>
 </div>

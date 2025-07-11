@@ -71,10 +71,6 @@ function theme_31w_customize_register($wp_customize)
         'section' => 'hero_section',
     )));
 
-
-
-
-
     /////////////////// couleur du texte de la section hero
     ////////////////////// champ couleur
     /* créer le champ */
@@ -91,10 +87,49 @@ function theme_31w_customize_register($wp_customize)
 
     ///////////////////////// Ajout du panneau « pied de page »
     // Le code pour ajouter des sections, des réglages et des contrôles ira ici.
+    
+    // SECTION Footer
     $wp_customize->add_section('footer_section', array(
-        'title' => __('Section pied de page', 'theme_31w'),
-        'priority' => 30,
+        'title' => __('Section Pied de page', 'theme_31w'),
+        'priority' => 40,
+    ));
+
+    // Champ : Adresse
+    $wp_customize->add_setting('footer_adresse', array(
+        'default' => __('3800, Sherbrook est, Montréal, Québec, Canada, H1X 2A2', 'theme_31w'),
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+
+    $wp_customize->add_control('footer_adresse', array(
+        'label' => __('Adresse', 'theme_31w'),
+        'section' => 'footer_section',
+        'type' => 'text',
+    ));
+
+    // Champ : Téléphone
+    $wp_customize->add_setting('footer_telephone', array(
+        'default' => __('514-254-7131', 'theme_31w'),
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+
+    $wp_customize->add_control('footer_telephone', array(
+        'label' => __('Téléphone', 'theme_31w'),
+        'section' => 'footer_section',
+        'type' => 'text',
+    ));
+
+    // Champ : Mission
+    $wp_customize->add_setting('footer_mission', array(
+        'default' => __('Notre mission est d\'inspirer et d\'informer...', 'theme_31w'),
+        'sanitize_callback' => 'sanitize_textarea_field',
+    ));
+
+    $wp_customize->add_control('footer_mission', array(
+        'label' => __('Mission du club', 'theme_31w'),
+        'section' => 'footer_section',
+        'type' => 'textarea',
     ));
 }
 
-add_action('customize_register', 'theme_31w_customize_register');
+add_action('customize_register', 'theme_31w_customize_register');    
+
