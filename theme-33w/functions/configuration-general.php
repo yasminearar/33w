@@ -49,7 +49,30 @@ function theme_tp_enqueue_styles()
         filemtime($script_path),
         true
     );
+
+     $script_path = get_template_directory() . '/script/carrousel.js';
+    $script_url  = get_template_directory_uri() . '/script/carrousel.js';
+
+    wp_enqueue_script(
+        'mon-carrousel',
+        $script_url,
+        array(),
+        filemtime($script_path),
+        true
+    );
+
+    $script_path = get_template_directory() . '/script/destination.js';
+    $script_url  = get_template_directory_uri() . '/script/destination.js';
+
+    wp_enqueue_script(
+        'destination',
+        $script_url,
+        array(),
+        filemtime($script_path),
+        true
+    );
 }
+
 add_action('wp_enqueue_scripts', 'theme_tp_enqueue_styles');
 
 

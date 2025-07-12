@@ -348,6 +348,28 @@ body {
   top: 0;
   left: 0;
 }
+.carrousel__form {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+.carrousel__radio {
+  width: 15px;
+  height: 15px;
+  appearance: none;
+  border: 2px solid white;
+  border-radius: 50%;
+  background-color: transparent;
+  cursor: pointer;
+}
+.carrousel__radio:checked {
+  background-color: white;
+}
 
 .piedpage {
   padding: 2rem 1rem;
@@ -522,7 +544,7 @@ body {
   overflow: hidden;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   align-items: center;
-  text-align: center;
+  text-align: left;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -546,18 +568,21 @@ body {
 }
 .populaire__carte a {
   display: inline-block;
-  background-color: rgb(186, 77, 29);
-  color: #fff;
+  background-color: #e78a5a;
+  color: black;
   padding: 0.1rem 0.3rem;
   border-radius: 6px;
   font-weight: 500;
   text-decoration: none;
   transition: background-color 0.3s ease;
-  margin-right: 0.8rem;
   margin-top: 1rem;
+  margin-left: 0.5rem;
+  margin-bottom: 1.2rem;
+  margin-right: 1rem;
 }
 .populaire__carte a:hover {
-  background-color: rgb(150, 60, 20);
+  background-color: #cf6838;
+  color: white;
   text-decoration: none;
 }
 .populaire__carte ul {
@@ -607,6 +632,38 @@ body {
 .populaire__carte__note-client::before {
   content: "⭐";
   margin-right: 0.5rem;
+}
+@media (max-width: 600px) {
+  .populaire__carte {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 1.2rem;
+    text-align: left;
+  }
+}
+
+.lien-retour {
+  display: inline-block;
+  margin-top: 1rem;
+  background-color: #e78a5a;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+}
+.lien-retour:hover {
+  background-color: #cf6838;
+}
+
+.populaire h1 {
+  font-size: 2rem;
+  color: rgb(186, 77, 29);
+}
+
+.populaire h2 {
+  font-size: 1.2rem;
+  color: #444;
 }
 
 /* ////////////////////////////////  animations *//*# sourceMappingURL=style.css.map */

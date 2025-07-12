@@ -3,9 +3,8 @@
   background-color: #fff;
   text-align: center;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
- 
 
-   &__titre {
+  &__titre {
     font-size: 2rem;
     margin-bottom: 2rem;
     text-align: center;
@@ -14,10 +13,10 @@
 
   &__contenu {
     display: flex;
-    justify-content: center; // <-- centrer les cartes horizontalement
+    justify-content: center;
     flex-wrap: wrap;
-    gap: 2rem; // un petit espace entre les cartes
-    
+    gap: 2rem;
+
     @media (max-width: $point-rupture) {
       justify-content: center;
     }
@@ -26,6 +25,7 @@
   &__galerie {
     flex: 1 0 100%;
     margin-bottom: 2rem;
+
     &:hover {
       transform: translateY(-5px);
     }
@@ -34,55 +34,52 @@
   &__carte {
     background-color: #f8f8f8;
     border-radius: 8px;
-    border: 2px solid rgb(186, 77, 29); 
+    border: 2px solid rgb(186, 77, 29);
     overflow: hidden;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     align-items: center;
-    text-align: center;
+    text-align: left;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     justify-content: space-between;
     flex: 0 0 calc((100% - 2 * 2rem) / 3);
     margin-bottom: 2rem;
     transition: transform 0.3s ease;
     padding: 10px;
-    
 
     &:hover {
       transform: translateY(-5px);
     }
 
-
     h3 {
-      
       font-size: 1.2rem;
       color: #333;
       margin: 0.5rem 0;
     }
 
     p {
-      
       font-size: 0.95rem;
       color: #444;
       margin: 0.3rem 0;
     }
 
     a {
-      
       display: inline-block;
-      background-color: rgb(186, 77, 29);
-      color: #fff;
+      background-color: #e78a5a;
+      color: black;
       padding: 0.1rem 0.3rem;
       border-radius: 6px;
       font-weight: 500;
       text-decoration: none;
       transition: background-color 0.3s ease;
-      margin-right: 0.8rem;
       margin-top: 1rem;
-      
+      margin-left: 0.5rem;
+      margin-bottom: 1.2rem;
+      margin-right: 1rem;
 
       &:hover {
-        background-color: rgb(150, 60, 20);
+        background-color: #cf6838;
+        color: white;
         text-decoration: none;
       }
     }
@@ -94,15 +91,12 @@
       display: inline;
 
       li {
-        
         list-style: none;
         padding: 0;
         margin: 0;
         display: inline;
-
       }
     }
-      
 
     &__temperature {
       font-weight: bold;
@@ -110,30 +104,26 @@
       margin-bottom: 3rem;
       display: flex;
       align-items: center;
-      justify-content: center; 
+      justify-content: center;
       gap: 1rem;
       text-align: center;
       padding-left: 0;
-     
 
-    // Température minimum ❄️
-    &--min::before {
-      content: "❄️";
-      margin-right: 0.5rem;
-    }
+      &--min::before {
+        content: "❄️";
+        margin-right: 0.5rem;
+      }
 
-    // Température moyenne 🌤️
-    &--moyenne::before {
-      content: "🌤️";
-      margin-right: 0.5rem;
-    }
+      &--moyenne::before {
+        content: "🌤️";
+        margin-right: 0.5rem;
+      }
 
-    // Température maximum 🔥
-    &--max::before {
-      content: "🔥";
-      margin-right: 0.5rem;
+      &--max::before {
+        content: "🔥";
+        margin-right: 0.5rem;
+      }
     }
-  }
 
     &__note-client {
       display: flex;
@@ -149,6 +139,13 @@
         margin-right: 0.5rem;
       }
     }
+
     
+    @media (max-width: $point-rupture) {
+      flex: 0 0 100%;
+      max-width: 100%;
+      padding: 1.2rem;
+      text-align: left;
+    }
   }
 }

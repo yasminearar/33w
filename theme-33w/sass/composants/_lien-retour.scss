@@ -1,0 +1,24 @@
+.lien-retour {
+  display: inline-block;
+  margin-top: 1rem;
+  background-color: #e78a5a;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+
+  &:hover {
+    background-color: #cf6838;
+  }
+}
+
+.populaire h1 {
+  font-size: 2rem;
+  color: rgb(186, 77, 29);
+}
+
+.populaire h2 {
+  font-size: 1.2rem;
+  color: #444;
+}

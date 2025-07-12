@@ -147,5 +147,29 @@
   height: 100%;
   top: 0;
   left: 0;
+  &__form {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+  }
+  &__radio {
+    width: 15px;
+    height: 15px;
+    appearance: none;
+    border: 2px solid white;
+    border-radius: 50%;
+    background-color: transparent;
+    cursor: pointer;
+
+    &:checked {
+      background-color: white;
+    }
+  }
 }
+
 
