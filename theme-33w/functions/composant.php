@@ -1,4 +1,3 @@
-
 <?php 
 function icone_sociaux($couleur) {
     $couleur = substr($couleur, 1); // pour enlever le # de la position 0 on extrait la couleur

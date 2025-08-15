@@ -1,18 +1,7 @@
 <?php
 
 /**
- * configuration des nou        // Nombre d'images pour le carrousel (limiteur)
-$wp_customize->add_setting('hero_carousel_count', array(
-'default'           => 3,
-'sanitize_callback' => function ($value) {
-$n = absint($value);
-// borne entre 1 et 10 (adapte à ton besoin)
-if ($n < 1) $n = 1;
-if ($n > 10) $n = 10;
-return $n;
-},
-'transport' => 'postMessage', // Pour une prévisualisation live
-));x du cutomizer
+ * Configuration des nouveaux du customizer
  */
 
 function theme_31w_customize_register($wp_customize)
