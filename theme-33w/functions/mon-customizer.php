@@ -1,7 +1,18 @@
 <?php
 
 /**
- * configuration des nouveau panneaux du cutomizer
+ * configuration des nou        // Nombre d'images pour le carrousel (limiteur)
+$wp_customize->add_setting('hero_carousel_count', array(
+'default'           => 3,
+'sanitize_callback' => function ($value) {
+$n = absint($value);
+// borne entre 1 et 10 (adapte à ton besoin)
+if ($n < 1) $n = 1;
+if ($n > 10) $n = 10;
+return $n;
+},
+'transport' => 'postMessage', // Pour une prévisualisation live
+));x du cutomizer
  */
 
 function theme_31w_customize_register($wp_customize)
@@ -36,40 +47,54 @@ function theme_31w_customize_register($wp_customize)
         'type' => 'text',
     ));
 
+    // Nombre d’images pour le carrousel (limiteur)
+    $wp_customize->add_setting('hero_carousel_count', array(
+        'default'           => 3,
+        'sanitize_callback' => function ($value) {
+            $n = absint($value);
+            // borne entre 1 et 10 (adapte à ton besoin)
+            if ($n < 1) $n = 1;
+            if ($n > 10) $n = 10;
+            return $n;
+        },
+        'transport' => 'postMessage', // Pour une prévisualisation live
+    ));
 
-    ////////////////////// image 0
-    /* créer le champ */
-    $wp_customize->add_setting('hero_background_0', array(
-        'default' => '',
-        'sanitize_callback' => 'esc_url_raw',
+    $wp_customize->add_control('hero_carousel_count', array(
+        'label'       => __('Nombre d’images à afficher', 'theme_31w'),
+        'description' => __('Limite le nombre d’images du carrousel héro.', 'theme_31w'),
+        'section'     => 'hero_section',
+        'type'        => 'number',
+        'input_attrs' => array(
+            'min'  => 1,
+            'max'  => 10,
+            'step' => 1,
+        ),
     ));
-    /* créer le contrôleur */
-    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'hero_background_0', array(
-        'label' => __('Image en arrière plan', 'theme_31w'),
-        'section' => 'hero_section',
-    )));
-    // image 1
-    /* créer le champ */
-    $wp_customize->add_setting('hero_background_1', array(
-        'default' => '',
-        'sanitize_callback' => 'esc_url_raw',
-    ));
-    /* créer le contrôleur */
-    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'hero_background_1', array(
-        'label' => __('Image en arrière plan', 'theme_31w'),
-        'section' => 'hero_section',
-    )));
-    // image 2
-    /* créer le champ */
-    $wp_customize->add_setting('hero_background_2', array(
-        'default' => '',
-        'sanitize_callback' => 'esc_url_raw',
-    ));
-    /* créer le contrôleur */
-    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'hero_background_2', array(
-        'label' => __('Image en arrière plan', 'theme_31w'),
-        'section' => 'hero_section',
-    )));
+
+
+
+    // Génération dynamique des champs d'images (maximum 10 images)
+    // Les champs seront affichés selon le nombre défini dans hero_carousel_count
+    for ($i = 0; $i < 10; $i++) {
+        // Créer le champ pour chaque image
+        $wp_customize->add_setting("hero_background_$i", array(
+            'default' => '',
+            'sanitize_callback' => 'esc_url_raw',
+        ));
+
+        // Créer le contrôleur pour chaque image
+        $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, "hero_background_$i", array(
+            'label' => sprintf(__('Image %d du carrousel', 'theme_31w'), $i + 1),
+            'section' => 'hero_section',
+            'active_callback' => function() use ($i) {
+                $carousel_count = get_theme_mod('hero_carousel_count', 3);
+                return $i < $carousel_count;
+            }
+        )));
+    }
+
+
 
     /////////////////// couleur du texte de la section hero
     ////////////////////// champ couleur
@@ -87,7 +112,7 @@ function theme_31w_customize_register($wp_customize)
 
     ///////////////////////// Ajout du panneau « pied de page »
     // Le code pour ajouter des sections, des réglages et des contrôles ira ici.
-    
+
     // SECTION Footer
     $wp_customize->add_section('footer_section', array(
         'title' => __('Section Pied de page', 'theme_31w'),
