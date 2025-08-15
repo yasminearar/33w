@@ -347,6 +347,13 @@ body {
   height: 100%;
   top: 0;
   left: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.8s ease-in-out;
+}
+.carrousel.active {
+  opacity: 1;
+  pointer-events: auto;
 }
 .carrousel__form {
   position: absolute;
@@ -366,9 +373,13 @@ body {
   border-radius: 50%;
   background-color: transparent;
   cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 .carrousel__radio:checked {
   background-color: white;
+}
+.carrousel__radio:hover {
+  transform: scale(1.1);
 }
 
 .piedpage {

@@ -7,9 +7,9 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  
 
-  
+
+
 
   &__contenu {
     position: absolute;
@@ -28,7 +28,7 @@
     animation: anim-titre 1s .5s cubic-bezier(0.075, 0.82, 0.165, 1)forwards;
     font-size: 2.5rem;
     margin-bottom: 1rem;
-    
+
   }
 
   &__description {
@@ -36,7 +36,7 @@
     font-size: 1.2rem;
     line-height: 1.5;
     margin-bottom: 1rem;
-    
+
   }
 
   &__auteur,
@@ -47,7 +47,7 @@
     font-weight: bold;
   }
 
- 
+
 
   &__bouton {
     background-color: rgb(186, 77, 29);
@@ -67,10 +67,10 @@
     margin-top: 1.5rem;
     display: flex;
     gap: 2rem;
-    
+
 
     a {
-      
+
       display: inline-block;
     }
   }
@@ -79,7 +79,7 @@
     width: 24px;
     height: 24px;
     background-color: rgb(186, 77, 29);
-    
+
     transition: transform 0.3s ease;
 
 
@@ -93,7 +93,7 @@
   .hero__auteur,
   .hero__adresse,
   .hero__reseaux {
-  text-shadow: $text-shadow-par-defaut;
+    text-shadow: $text-shadow-par-defaut;
   }
 
 
@@ -147,6 +147,14 @@
   height: 100%;
   top: 0;
   left: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.8s ease-in-out;
+
+  &.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
   &__form {
     position: absolute;
     bottom: 0;
@@ -165,9 +173,14 @@
     border-radius: 50%;
     background-color: transparent;
     cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 
     &:checked {
       background-color: white;
+    }
+
+    &:hover {
+      transform: scale(1.1);
     }
   }
 }

@@ -6,8 +6,11 @@
   radios.forEach((radio, index) => {
     radio.addEventListener("change", () => {
       carrousels.forEach((carrousel, i) => {
-        carrousel.style.opacity = i === index ? "1" : "0";
-        carrousel.style.pointerEvents = i === index ? "auto" : "none";
+        if (i === index) {
+          carrousel.classList.add("active");
+        } else {
+          carrousel.classList.remove("active");
+        }
       });
     });
   });
