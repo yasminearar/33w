@@ -1,32 +1,31 @@
 <?php get_header(); ?>
 <?php
-// Initialiser les images de fond ici
-$hero_background[0] = get_theme_mod("hero_background_0", get_template_directory_uri() . "/images/default1.jpg");
-$hero_background[1] = get_theme_mod("hero_background_1", get_template_directory_uri() . "/images/default2.jpg");
-$hero_background[2] = get_theme_mod("hero_background_2", get_template_directory_uri() . "/images/default3.jpg");
-$hero_background[3] = get_theme_mod("hero_background_3", get_template_directory_uri() . "/images/default4.jpg");
-$hero_background[4] = get_theme_mod("hero_background_4", get_template_directory_uri() . "/images/default5.jpg");
-$hero_background[5] = get_theme_mod("hero_background_5", get_template_directory_uri() . "/images/default6.jpg");
-$hero_background[6] = get_theme_mod("hero_background_6", get_template_directory_uri() . "/images/default7.jpg");
+// Récupérer le nombre d'images défini dans le customizer
+$carousel_count = get_theme_mod('hero_carousel_count', 3);
 
+// Initialiser les images de fond dynamiquement
+$hero_background = array();
+for ($i = 0; $i < $carousel_count; $i++) {
+    $hero_background[$i] = get_theme_mod("hero_background_$i", get_template_directory_uri() . "/images/default" . ($i + 1) . ".jpg");
+}
 ?>
 
     <section class="hero">
-        <div class="carrousel" data-index="0" style="background-image: url('<?= $hero_background[0] ?>'); opacity:1"></div>
-        <div class="carrousel" data-index="1" style="background-image: url('<?= $hero_background[1] ?>'); opacity:0"></div>
-        <div class="carrousel" data-index="2" style="background-image: url('<?= $hero_background[2] ?>'); opacity:0"></div>
-        <div class="carrousel" data-index="3" style="background-image: url('<?= $hero_background[3] ?>'); opacity:0"></div>
-        <div class="carrousel" data-index="4" style="background-image: url('<?= $hero_background[4] ?>'); opacity:0"></div>
-        <div class="carrousel" data-index="5" style="background-image: url('<?= $hero_background[5] ?>'); opacity:0"></div>
-        <div class="carrousel" data-index="6" style="background-image: url('<?= $hero_background[6] ?>'); opacity:0"></div>
+        <?php
+        // Génération dynamique des éléments carrousel avec une boucle
+        for ($i = 0; $i < $carousel_count; $i++) {
+            $opacity = ($i === 0) ? '1' : '0'; // Premier élément visible
+            echo '<div class="carrousel" data-index="' . $i . '" style="background-image: url(\'' . $hero_background[$i] . '\'); opacity:' . $opacity . '"></div>';
+        }
+        ?>
         <form class="carrousel__form">
-            <input type="radio" class="carrousel__radio" name="carrousel" id="slide1" checked>
-            <input type="radio" class="carrousel__radio" name="carrousel" id="slide2">
-            <input type="radio" class="carrousel__radio" name="carrousel" id="slide3">
-            <input type="radio" class="carrousel__radio" name="carrousel" id="slide4">
-            <input type="radio" class="carrousel__radio" name="carrousel" id="slide5">
-            <input type="radio" class="carrousel__radio" name="carrousel" id="slide6">
-            <input type="radio" class="carrousel__radio" name="carrousel" id="slide7">
+            <?php
+            // Génération dynamique des boutons radio avec une boucle
+            for ($i = 0; $i < $carousel_count; $i++) {
+                $checked = ($i === 0) ? 'checked' : ''; // Premier bouton sélectionné
+                echo '<input type="radio" class="carrousel__radio" name="carrousel" id="slide' . ($i + 1) . '" ' . $checked . '>';
+            }
+            ?>
         </form>
 
         <?php get_template_part("gabarit/hero"); ?>
@@ -43,9 +42,7 @@ $hero_background[6] = get_theme_mod("hero_background_6", get_template_directory_
 
 
     <section class="populaire">
-      <?php get_template_part('gabarit/populaire'); ?>
+        <?php get_template_part('gabarit/populaire'); ?>
     </section>
-
-  
 
 <?php get_footer();
