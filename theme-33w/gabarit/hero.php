@@ -25,7 +25,7 @@ $hero_bouton = get_theme_mod('hero_bouton', "S'inscrire");
     </p>
     <p class="hero__auteur">Auteur du thème : <?php echo $hero_auteur; ?></p>
     <p class="hero__adresse">Adresse du club : <?php echo $hero_adresse; ?></p>
-    <button class="hero__bouton"><?php echo $hero_bouton; ?></button>
+    <a href="#formulaire-inscription" class="hero__bouton"><?php echo $hero_bouton; ?></a>
     <div class="hero__reseaux">
         <?php icone_sociaux($hero_couleur); ?>
     </div>

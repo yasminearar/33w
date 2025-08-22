@@ -3,18 +3,7 @@
 Theme Name: thème-33w
 Theme URI: https://referenced.ca
 Author: Yasmine Arar
-Author URI: https://github.com/eddytuto
-Description: Thème de base développer dans le cadre du cours de Worpress
-Version: 1.0
-Tested up to: 6.2
-Requires PHP: 7.0
-License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: club-voyage
 */
-/* Importation des  feuilles de style du thème */
-/* variables */
-/* Base */
 h1 {
   font-family: "Poppins", sans-serif;
   font-weight: 600;
@@ -24,6 +13,7 @@ h1 {
 /* Layout */
 html {
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 *,
@@ -275,9 +265,13 @@ body {
   font-size: 1rem;
   border-radius: 4px;
   cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
 }
 .hero__bouton:hover {
   background-color: rgb(219, 135, 51);
+  color: white;
+  text-decoration: none;
 }
 .hero__reseaux {
   margin-top: 1.5rem;
@@ -682,12 +676,14 @@ body {
 
 /* ================================ Séparateurs SVG */
 
-/* Styles de base pour tous les séparateurs */
+/* Styles améliorés pour tous les séparateurs */
 .separateur-svg {
   position: relative;
   z-index: 2;
   margin: 0;
   padding: 0;
+  filter: drop-shadow(0 -2px 4px rgba(0,0,0,0.05));
+  transition: all 0.3s ease;
 }
 
 /* Séparateurs SVG animés pour le footer */
@@ -697,9 +693,109 @@ body {
   margin: 0;
   padding: 0;
   overflow: hidden;
+  filter: drop-shadow(0 -4px 6px rgba(0,0,0,0.08));
 }
 
-/* Animation de flux de vagues */
+/* Styles spécifiques pour différents types de séparateurs */
+.separateur-wave-gradient,
+.separateur-wave-smooth {
+  opacity: 0.92;
+}
+
+.separateur-curve,
+.separateur-curve-smooth {
+  filter: drop-shadow(0 -3px 5px rgba(0,0,0,0.1));
+}
+
+.separateur-wave-double {
+  filter: drop-shadow(0 -4px 8px rgba(0,0,0,0.06));
+}
+
+.separateur-hills,
+.separateur-peaks {
+  filter: drop-shadow(0 -2px 3px rgba(0,0,0,0.04));
+  opacity: 0.95;
+}
+
+/* Style spécifique pour la vague de plage */
+.separateur-beach-wave {
+  filter: drop-shadow(0 -1px 2px rgba(0,0,0,0.08));
+  opacity: 0.9;
+  margin-top: 20px;
+}
+
+/* Styles spécialisés pour le séparateur océanique */
+.separateur-ocean-waves {
+  filter: drop-shadow(0 -6px 12px rgba(0,0,0,0.15));
+  opacity: 0.95;
+  margin-top: 10px;
+  background: linear-gradient(135deg, rgba(186, 77, 29, 0.02) 0%, rgba(226, 136, 34, 0.05) 100%);
+  border-radius: 0 0 20px 20px;
+  overflow: hidden;
+  box-shadow: inset 0 -5px 10px rgba(0,0,0,0.05);
+}
+
+/* Effet de brillance au survol pour le séparateur océanique */
+.separateur-ocean-waves:hover {
+  filter: drop-shadow(0 -8px 16px rgba(0,0,0,0.2)) brightness(1.05);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Styles pour le séparateur à vague unique */
+.separateur-single-wave {
+  filter: drop-shadow(0 -4px 8px rgba(0,0,0,0.12));
+  opacity: 1;
+  margin-top: 5px;
+  background: linear-gradient(180deg, rgba(186, 77, 29, 0.01) 0%, rgba(226, 136, 34, 0.03) 100%);
+  overflow: hidden;
+}
+
+/* Effet de survol pour la vague unique */
+.separateur-single-wave:hover {
+  filter: drop-shadow(0 -6px 12px rgba(0,0,0,0.18)) brightness(1.03);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Animation fluide pour la vague unique */
+.separateur-single-wave svg {
+  animation: smooth-flow 15s ease-in-out infinite;
+}
+
+@keyframes smooth-flow {
+  0%, 100% {
+    transform: scaleX(1) scaleY(1);
+  }
+  50% {
+    transform: scaleX(1.02) scaleY(0.98);
+  }
+}
+
+/* Animation spéciale pour les particules océaniques */
+.separateur-ocean-waves svg {
+  animation: gentle-sway 20s ease-in-out infinite;
+}
+
+@keyframes gentle-sway {
+  0%, 100% {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  25% {
+    transform: rotateX(0.5deg) rotateY(-0.3deg);
+  }
+  50% {
+    transform: rotateX(-0.3deg) rotateY(0.5deg);
+  }
+  75% {
+    transform: rotateX(0.3deg) rotateY(-0.2deg);
+  }
+}
+
+/* Effet de survol subtil pour améliorer l'interaction */
+.separateur-theme:hover {
+  filter: drop-shadow(0 -3px 6px rgba(0,0,0,0.12));
+}
+
+/* Animation de flux de vagues - améliorée avec easing */
 @keyframes wave-flow {
   0% {
     transform: translateX(-50%);
@@ -709,7 +805,7 @@ body {
   }
 }
 
-/* Animation de pulsation */
+/* Animation de pulsation - améliorée avec des transitions plus douces */
 @keyframes wave-pulse {
   0%, 100% {
     transform: scale(1);
@@ -721,26 +817,94 @@ body {
   }
 }
 
-/* Animation de particules flottantes */
+/* Animation de particules flottantes - plus organique */
 @keyframes float-particles {
-  0%, 100% {
+  0% {
     transform: translateY(0px) rotate(0deg);
     opacity: 0.6;
   }
-  50% {
-    transform: translateY(-10px) rotate(180deg);
-    opacity: 1;
+  33% {
+    transform: translateY(-10px) rotate(120deg);
+    opacity: 0.9;
+  }
+  66% {
+    transform: translateY(-5px) rotate(240deg);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(0px) rotate(360deg);
+    opacity: 0.6;
   }
 }
 
-/* Responsive pour les séparateurs */
+/* Nouvelle animation pour wave-ripple */
+@keyframes ripple-effect {
+  0%, 100% {
+    opacity: 0.7;
+    filter: blur(0px);
+  }
+  50% {
+    opacity: 1;
+    filter: blur(0.5px);
+  }
+}
+
+/* Animation de couleur subtile pour les séparateurs */
+@keyframes color-shift {
+  0%, 100% {
+    filter: saturate(100%) hue-rotate(0deg);
+  }
+  50% {
+    filter: saturate(110%) hue-rotate(5deg);
+  }
+}
+
+/* Effets 3D subtils pour les séparateurs */
+.separateur-curve-smooth,
+.separateur-peaks,
+.separateur-wave-smooth {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+/* Effet de couleur animée au survol */
+.separateur-theme:hover {
+  animation: color-shift 3s ease-in-out infinite;
+  transition: filter 0.5s ease;
+}
+
+/* Animation pour les séparateurs ondulés */
+.separateur-wave-ripple {
+  animation: ripple-effect 5s ease-in-out infinite;
+}
+
+/* Effet de parallaxe sur certains séparateurs */
+.separateur-waves-opacity svg path:nth-child(odd) {
+  transform: translateZ(5px);
+}
+
+.separateur-waves-opacity svg path:nth-child(even) {
+  transform: translateZ(10px);
+}
+
+/* Responsive pour les séparateurs - Adapté pour différents écrans */
+@media screen and (max-width: 1200px) {
+  .separateur-svg {
+    height: 80px !important;
+  }
+
+  .separateur-svg-anime {
+    height: 100px !important;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .separateur-svg {
     height: 60px !important;
   }
 
   .separateur-svg-anime {
-    height: 60px !important;
+    height: 70px !important;
   }
 
   /* Réduire l'intensité des animations sur mobile */
@@ -756,6 +920,11 @@ body {
 
   .separateur-svg-anime {
     height: 50px !important;
+  }
+
+  /* Animations plus légères pour les appareils plus petits */
+  .separateur-svg-anime svg {
+    animation-duration: 8s !important;
   }
 }
 

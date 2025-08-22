@@ -8,7 +8,10 @@
           if (in_category('galerie')) {
             get_template_part('gabarit/galerie');
           } else { 
-            get_template_part('gabarit/carte');
+            // Utiliser la fonction carte() pour être cohérent avec le reste du thème
+            // Exclure la catégorie actuelle des liens (pas du contenu)
+            $current_category = get_queried_object();
+            carte($current_category->name);
           }
         }
       }?>
