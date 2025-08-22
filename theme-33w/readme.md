@@ -10,6 +10,8 @@ https://github.com/yasminearar/33w/tree/tp2
 
 https://gftnth00.mywhc.ca/33we_01/
 
+#### Titre: Epreuve final - Création du modèle 404.php
+
 ## 🎯 Objectif Principal
 
 Thème WordPress développé pour un club de voyage avec un système de **Customizer** permettant de personnaliser facilement les sections héro et footer.
