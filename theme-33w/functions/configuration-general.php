@@ -21,6 +21,19 @@ function mon_theme_supports()
 }
 add_action('after_setup_theme', 'mon_theme_supports');
 
+/**
+ * Enregistrement des emplacements de menus
+ */
+function enregistrer_emplacements_menu()
+{
+    register_nav_menus(array(
+        'menu-principal' => __('Menu principal', 'theme_31w'),
+        'menu-externe' => __('Menu externe (footer)', 'theme_31w'),
+        'menu-404-destinations' => __('Menu destinations 404', 'theme_31w'),
+    ));
+}
+add_action('after_setup_theme', 'enregistrer_emplacements_menu');
+
 
 
 function theme_tp_enqueue_styles()
@@ -50,7 +63,7 @@ function theme_tp_enqueue_styles()
         true
     );
 
-     $script_path = get_template_directory() . '/script/carrousel.js';
+    $script_path = get_template_directory() . '/script/carrousel.js';
     $script_url  = get_template_directory_uri() . '/script/carrousel.js';
 
     wp_enqueue_script(
