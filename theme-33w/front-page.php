@@ -15,6 +15,12 @@
         </form>
     </section>
 
+    <!-- section rest-api - identique au thème de référence -->
+    <section class="destination">
+        <?php extraire_list_categories("destination"); ?>
+        <h2 class="destination__titre">Articles de la catégorie</h2>
+        <div class="destination__list"></div>
+    </section>
 
     <section class="populaire">
         <div class="populaire__contenu">
