@@ -4,6 +4,9 @@ Theme Name: thème-33w
 Theme URI: https://referenced.ca
 Author: Yasmine Arar
 */
+/* Importation des  feuilles de style du thème */
+/* variables */
+/* Base */
 h1 {
   font-family: "Poppins", sans-serif;
   font-weight: 600;
@@ -13,7 +16,6 @@ h1 {
 /* Layout */
 html {
   box-sizing: border-box;
-  scroll-behavior: smooth;
 }
 
 *,
@@ -265,13 +267,9 @@ body {
   font-size: 1rem;
   border-radius: 4px;
   cursor: pointer;
-  text-decoration: none;
-  display: inline-block;
 }
 .hero__bouton:hover {
   background-color: rgb(219, 135, 51);
-  color: white;
-  text-decoration: none;
 }
 .hero__reseaux {
   margin-top: 1.5rem;
@@ -376,6 +374,524 @@ body {
   transform: scale(1.1);
 }
 
+/* ====================================
+   Page d'erreur 404 - Méthodologie BEM
+   ====================================
+
+   Structure responsive selon task.md :
+   - Desktop : contenu centré, boutons horizontaux
+   - Tablet : boutons en 2 colonnes  
+   - Mobile : stack vertical complet
+
+   Paramètres Customizer intégrés :
+   - Image de fond configurable
+   - Couleurs des boutons personnalisables
+   - Titre et message modifiables
+*/
+.erreur-404 {
+  /* Container principal avec image de fond */
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  /* Overlay sombre pour la lisibilité */
+  /* Container du contenu centré */
+  /* Titre principal */
+  /* Message descriptif */
+  /* Container des actions (bouton principal) */
+  /* Styles communs pour tous les boutons */
+  /* Bouton principal (retour accueil) */
+  /* Boutons secondaires (destinations) */
+  /* Section destinations */
+  /* Titre de section */
+  /* Navigation menu destinations */
+  /* Destinations par défaut (si pas de menu) */
+  /* Section recherche */
+  /* Container du formulaire de recherche */
+}
+.erreur-404__overlay {
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5));
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+.erreur-404__content {
+  text-align: center;
+  color: white;
+  max-width: 900px;
+  width: 100%;
+  z-index: 10;
+  position: relative;
+}
+.erreur-404__title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+  line-height: 1.2;
+  color: white;
+}
+@media (max-width: 768px) {
+  .erreur-404__title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+}
+.erreur-404__message {
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+  color: rgba(255, 255, 255, 0.95);
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 768px) {
+  .erreur-404__message {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+}
+.erreur-404__actions {
+  margin-bottom: 3rem;
+}
+@media (max-width: 768px) {
+  .erreur-404__actions {
+    margin-bottom: 2rem;
+  }
+}
+.erreur-404__btn {
+  display: inline-block;
+  padding: 14px 28px;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  margin: 0.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.erreur-404__btn:hover {
+  transform: translateY(-2px);
+  text-decoration: none;
+  color: white;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+.erreur-404__btn:focus {
+  outline: 3px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 2px;
+}
+@media (max-width: 768px) {
+  .erreur-404__btn {
+    padding: 12px 24px;
+    font-size: 0.9rem;
+    margin: 0.3rem;
+    display: block;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.erreur-404__btn-primary {
+  font-size: 1.2rem;
+  padding: 16px 32px;
+  position: relative;
+  overflow: hidden;
+}
+.erreur-404__btn-primary::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+.erreur-404__btn-primary:hover::before {
+  left: 100%;
+}
+@media (max-width: 768px) {
+  .erreur-404__btn-primary {
+    font-size: 1.1rem;
+    padding: 14px 28px;
+  }
+}
+.erreur-404__btn-secondary {
+  font-size: 0.95rem;
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.erreur-404__btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.2) !important;
+  backdrop-filter: blur(15px);
+}
+.erreur-404__destinations {
+  margin-bottom: 3rem;
+}
+@media (max-width: 768px) {
+  .erreur-404__destinations {
+    margin-bottom: 2rem;
+  }
+}
+.erreur-404__destinations-title, .erreur-404__search-title {
+  font-size: clamp(1.3rem, 3vw, 1.6rem);
+  margin-bottom: 1.5rem;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 500;
+}
+@media (max-width: 768px) {
+  .erreur-404__destinations-title, .erreur-404__search-title {
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+  }
+}
+.erreur-404__nav {
+  width: 100%;
+}
+.erreur-404__menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 1rem;
+  justify-content: center;
+  /* Desktop : jusqu'à 4 colonnes selon le contenu */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  /* Tablet : 2 colonnes */
+  /* Mobile : 1 colonne (stack vertical) */
+}
+.erreur-404__menu li {
+  display: flex;
+  justify-content: center;
+}
+.erreur-404__menu a {
+  width: 100%;
+  text-align: center;
+  min-width: 180px;
+}
+@media (max-width: 1024px) and (min-width: 769px) {
+  .erreur-404__menu {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 500px;
+  }
+}
+@media (max-width: 768px) {
+  .erreur-404__menu {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+    max-width: 300px;
+  }
+}
+.erreur-404__destinations-default {
+  display: grid;
+  gap: 1rem;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  /* Tablet : 2 colonnes */
+  /* Mobile : 1 colonne */
+}
+@media (max-width: 1024px) and (min-width: 769px) {
+  .erreur-404__destinations-default {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .erreur-404__destinations-default {
+    grid-template-columns: 1fr;
+    max-width: 300px;
+  }
+}
+.erreur-404__search {
+  margin-bottom: 2rem;
+}
+.erreur-404__search-form {
+  display: inline-block;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+.erreur-404__search-form form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+@media (max-width: 768px) {
+  .erreur-404__search-form form {
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+  }
+}
+.erreur-404__search-form input[type=search] {
+  padding: 12px 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+  min-width: 250px;
+  transition: all 0.3s ease;
+}
+.erreur-404__search-form input[type=search]:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.8);
+  background: white;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+.erreur-404__search-form input[type=search]::placeholder {
+  color: #666;
+}
+@media (max-width: 768px) {
+  .erreur-404__search-form input[type=search] {
+    width: 100%;
+    max-width: 280px;
+    min-width: unset;
+  }
+}
+.erreur-404__search-form input[type=submit] {
+  padding: 12px 20px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+}
+.erreur-404__search-form input[type=submit]:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.8);
+  transform: translateY(-1px);
+}
+.erreur-404__search-form input[type=submit]:focus {
+  outline: 3px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 2px;
+}
+@media (max-width: 768px) {
+  .erreur-404__search-form input[type=submit] {
+    width: 100%;
+    max-width: 140px;
+  }
+}
+@media (max-width: 768px) {
+  .erreur-404__search-form {
+    padding: 1.2rem;
+    width: 90%;
+    max-width: 320px;
+  }
+}
+
+/* ====================================
+   Animations et effets d'amélioration
+   ====================================*/
+/* Animation d'apparition au chargement */
+.erreur-404__content {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Animation échelonnée pour les boutons */
+.erreur-404__btn {
+  animation: fadeInScale 0.6s ease-out backwards;
+}
+
+.erreur-404__btn:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.erreur-404__btn:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.erreur-404__btn:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.erreur-404__btn:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+/* Optimisations pour l'accessibilité */
+@media (prefers-reduced-motion: reduce) {
+  .erreur-404__content,
+  .erreur-404__btn {
+    animation: none;
+  }
+  .erreur-404__btn {
+    transition: none;
+  }
+}
+/* Amélioration du contraste pour l'accessibilité */
+@media (prefers-contrast: high) {
+  .erreur-404__overlay {
+    background: rgba(0, 0, 0, 0.8);
+  }
+  .erreur-404__title,
+  .erreur-404__message {
+    text-shadow: 2px 2px 0 #000;
+  }
+}
+/* ====================================
+   Footer - Image de destination
+   ====================================
+
+   Styles pour l'affichage de l'image de destination
+   configurée via le Customizer dans le footer
+*/
+/* Section destination dans le footer */
+.footer-destination {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  /* ====================================
+     Image de destination
+     ====================================*/
+  /* ====================================
+     Contenu textuel
+     ====================================*/
+}
+.footer-destination__titre {
+  color: #f5f5dc;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-weight: 600;
+}
+.footer-destination__contenu {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+.footer-destination__image {
+  flex: 0 0 120px;
+  width: 120px;
+}
+.footer-destination__image img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.footer-destination__image a:hover img {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+.footer-destination__texte {
+  flex: 1;
+  color: #f5f5dc;
+}
+.footer-destination__texte p {
+  margin: 0 0 1rem 0;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+.footer-destination__lien {
+  display: inline-block;
+  background: linear-gradient(135deg, #f5f5dc 0%, rgba(245, 245, 220, 0.8) 100%);
+  color: rgb(186, 77, 29);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+.footer-destination__lien:hover {
+  background: #f5f5dc;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(245, 245, 220, 0.3);
+  color: rgb(186, 77, 29);
+  text-decoration: none;
+}
+
+/* ====================================
+   Responsive pour l'image de destination
+   ====================================*/
+@media screen and (max-width: 768px) {
+  .footer-destination__contenu {
+    flex-direction: column;
+    text-align: center;
+  }
+  .footer-destination__image {
+    flex: none;
+    align-self: center;
+    width: 150px;
+  }
+  .footer-destination__image img {
+    width: 150px;
+    height: 150px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .footer-destination {
+    padding: 1rem;
+  }
+  .footer-destination__titre {
+    font-size: 1.2rem;
+  }
+  .footer-destination__image {
+    width: 120px;
+  }
+  .footer-destination__image img {
+    width: 120px;
+    height: 120px;
+  }
+}
 .piedpage {
   padding: 2rem 1rem;
   color: #fff;
@@ -555,14 +1071,11 @@ body {
   justify-content: space-between;
   flex: 0 0 calc((100% - 4rem) / 3);
   margin-bottom: 2rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.2s ease;
+  transition: transform 0.3s ease;
   padding: 10px;
-  opacity: 0.95;
 }
 .populaire__carte:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  opacity: 1;
 }
 .populaire__carte h3 {
   font-size: 1.2rem;
@@ -674,15 +1187,20 @@ body {
   color: #444;
 }
 
-/* ================================ Séparateurs SVG */
+/* ====================================
+   Séparateurs SVG - Composant réutilisable
+   ====================================
 
-/* Styles améliorés pour tous les séparateurs */
+   Styles pour tous les séparateurs SVG générés
+   par les fonctions du thème (functions/composant.php)
+*/
+/* Styles de base pour tous les séparateurs */
 .separateur-svg {
   position: relative;
   z-index: 2;
   margin: 0;
   padding: 0;
-  filter: drop-shadow(0 -2px 4px rgba(0,0,0,0.05));
+  filter: drop-shadow(0 -2px 4px rgba(0, 0, 0, 0.05));
   transition: all 0.3s ease;
 }
 
@@ -693,9 +1211,12 @@ body {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  filter: drop-shadow(0 -4px 6px rgba(0,0,0,0.08));
+  filter: drop-shadow(0 -4px 6px rgba(0, 0, 0, 0.08));
 }
 
+/* ====================================
+   Types de séparateurs spécifiques
+   ====================================*/
 /* Styles spécifiques pour différents types de séparateurs */
 .separateur-wave-gradient,
 .separateur-wave-smooth {
@@ -704,159 +1225,66 @@ body {
 
 .separateur-curve,
 .separateur-curve-smooth {
-  filter: drop-shadow(0 -3px 5px rgba(0,0,0,0.1));
+  filter: drop-shadow(0 -3px 5px rgba(0, 0, 0, 0.1));
 }
 
 .separateur-wave-double {
-  filter: drop-shadow(0 -4px 8px rgba(0,0,0,0.06));
+  filter: drop-shadow(0 -4px 8px rgba(0, 0, 0, 0.06));
 }
 
 .separateur-hills,
 .separateur-peaks {
-  filter: drop-shadow(0 -2px 3px rgba(0,0,0,0.04));
+  filter: drop-shadow(0 -2px 3px rgba(0, 0, 0, 0.04));
   opacity: 0.95;
 }
 
 /* Style spécifique pour la vague de plage */
 .separateur-beach-wave {
-  filter: drop-shadow(0 -1px 2px rgba(0,0,0,0.08));
+  filter: drop-shadow(0 -1px 2px rgba(0, 0, 0, 0.08));
   opacity: 0.9;
   margin-top: 20px;
 }
 
 /* Styles spécialisés pour le séparateur océanique */
 .separateur-ocean-waves {
-  filter: drop-shadow(0 -6px 12px rgba(0,0,0,0.15));
+  filter: drop-shadow(0 -6px 12px rgba(0, 0, 0, 0.15));
   opacity: 0.95;
   margin-top: 10px;
   background: linear-gradient(135deg, rgba(186, 77, 29, 0.02) 0%, rgba(226, 136, 34, 0.05) 100%);
   border-radius: 0 0 20px 20px;
   overflow: hidden;
-  box-shadow: inset 0 -5px 10px rgba(0,0,0,0.05);
+  box-shadow: inset 0 -5px 10px rgba(0, 0, 0, 0.05);
+  /* Effet de brillance au survol */
 }
-
-/* Effet de brillance au survol pour le séparateur océanique */
 .separateur-ocean-waves:hover {
-  filter: drop-shadow(0 -8px 16px rgba(0,0,0,0.2)) brightness(1.05);
+  filter: drop-shadow(0 -8px 16px rgba(0, 0, 0, 0.2)) brightness(1.05);
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 /* Styles pour le séparateur à vague unique */
 .separateur-single-wave {
-  filter: drop-shadow(0 -4px 8px rgba(0,0,0,0.12));
+  filter: drop-shadow(0 -4px 8px rgba(0, 0, 0, 0.12));
   opacity: 1;
   margin-top: 5px;
   background: linear-gradient(180deg, rgba(186, 77, 29, 0.01) 0%, rgba(226, 136, 34, 0.03) 100%);
   overflow: hidden;
+  /* Effet de survol pour la vague unique */
+  /* Animation fluide pour la vague unique */
 }
-
-/* Effet de survol pour la vague unique */
 .separateur-single-wave:hover {
-  filter: drop-shadow(0 -6px 12px rgba(0,0,0,0.18)) brightness(1.03);
+  filter: drop-shadow(0 -6px 12px rgba(0, 0, 0, 0.18)) brightness(1.03);
   transition: all 0.3s ease-in-out;
 }
-
-/* Animation fluide pour la vague unique */
 .separateur-single-wave svg {
   animation: smooth-flow 15s ease-in-out infinite;
 }
 
-@keyframes smooth-flow {
-  0%, 100% {
-    transform: scaleX(1) scaleY(1);
-  }
-  50% {
-    transform: scaleX(1.02) scaleY(0.98);
-  }
-}
-
-/* Animation spéciale pour les particules océaniques */
-.separateur-ocean-waves svg {
-  animation: gentle-sway 20s ease-in-out infinite;
-}
-
-@keyframes gentle-sway {
-  0%, 100% {
-    transform: rotateX(0deg) rotateY(0deg);
-  }
-  25% {
-    transform: rotateX(0.5deg) rotateY(-0.3deg);
-  }
-  50% {
-    transform: rotateX(-0.3deg) rotateY(0.5deg);
-  }
-  75% {
-    transform: rotateX(0.3deg) rotateY(-0.2deg);
-  }
-}
-
+/* ====================================
+   Effets et animations des séparateurs
+   ====================================*/
 /* Effet de survol subtil pour améliorer l'interaction */
 .separateur-theme:hover {
-  filter: drop-shadow(0 -3px 6px rgba(0,0,0,0.12));
-}
-
-/* Animation de flux de vagues - améliorée avec easing */
-@keyframes wave-flow {
-  0% {
-    transform: translateX(-50%);
-  }
-  100% {
-    transform: translateX(0%);
-  }
-}
-
-/* Animation de pulsation - améliorée avec des transitions plus douces */
-@keyframes wave-pulse {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 0.8;
-  }
-  50% {
-    transform: scale(1.05);
-    opacity: 1;
-  }
-}
-
-/* Animation de particules flottantes - plus organique */
-@keyframes float-particles {
-  0% {
-    transform: translateY(0px) rotate(0deg);
-    opacity: 0.6;
-  }
-  33% {
-    transform: translateY(-10px) rotate(120deg);
-    opacity: 0.9;
-  }
-  66% {
-    transform: translateY(-5px) rotate(240deg);
-    opacity: 0.7;
-  }
-  100% {
-    transform: translateY(0px) rotate(360deg);
-    opacity: 0.6;
-  }
-}
-
-/* Nouvelle animation pour wave-ripple */
-@keyframes ripple-effect {
-  0%, 100% {
-    opacity: 0.7;
-    filter: blur(0px);
-  }
-  50% {
-    opacity: 1;
-    filter: blur(0.5px);
-  }
-}
-
-/* Animation de couleur subtile pour les séparateurs */
-@keyframes color-shift {
-  0%, 100% {
-    filter: saturate(100%) hue-rotate(0deg);
-  }
-  50% {
-    filter: saturate(110%) hue-rotate(5deg);
-  }
+  filter: drop-shadow(0 -3px 6px rgba(0, 0, 0, 0.12));
 }
 
 /* Effets 3D subtils pour les séparateurs */
@@ -878,6 +1306,11 @@ body {
   animation: ripple-effect 5s ease-in-out infinite;
 }
 
+/* Animation spéciale pour les particules océaniques */
+.separateur-ocean-waves svg {
+  animation: gentle-sway 20s ease-in-out infinite;
+}
+
 /* Effet de parallaxe sur certains séparateurs */
 .separateur-waves-opacity svg path:nth-child(odd) {
   transform: translateZ(5px);
@@ -887,55 +1320,137 @@ body {
   transform: translateZ(10px);
 }
 
-/* Responsive pour les séparateurs - Adapté pour différents écrans */
+/* ====================================
+   Animations spécifiques
+   ====================================*/
+@keyframes smooth-flow {
+  0%, 100% {
+    transform: scaleX(1) scaleY(1);
+  }
+  50% {
+    transform: scaleX(1.02) scaleY(0.98);
+  }
+}
+@keyframes gentle-sway {
+  0%, 100% {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  25% {
+    transform: rotateX(0.5deg) rotateY(-0.3deg);
+  }
+  50% {
+    transform: rotateX(-0.3deg) rotateY(0.5deg);
+  }
+  75% {
+    transform: rotateX(0.3deg) rotateY(-0.2deg);
+  }
+}
+/* Animation de flux de vagues - améliorée avec easing */
+@keyframes wave-flow {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+/* Animation de pulsation - améliorée avec des transitions plus douces */
+@keyframes wave-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+}
+/* Animation de particules flottantes - plus organique */
+@keyframes float-particles {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.6;
+  }
+  33% {
+    transform: translateY(-10px) rotate(120deg);
+    opacity: 0.9;
+  }
+  66% {
+    transform: translateY(-5px) rotate(240deg);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(0px) rotate(360deg);
+    opacity: 0.6;
+  }
+}
+/* Nouvelle animation pour wave-ripple */
+@keyframes ripple-effect {
+  0%, 100% {
+    opacity: 0.7;
+    filter: blur(0px);
+  }
+  50% {
+    opacity: 1;
+    filter: blur(0.5px);
+  }
+}
+/* Animation de couleur subtile pour les séparateurs */
+@keyframes color-shift {
+  0%, 100% {
+    filter: saturate(100%) hue-rotate(0deg);
+  }
+  50% {
+    filter: saturate(110%) hue-rotate(5deg);
+  }
+}
+/* ====================================
+   Responsive pour les séparateurs
+   ====================================*/
 @media screen and (max-width: 1200px) {
   .separateur-svg {
     height: 80px !important;
   }
-
   .separateur-svg-anime {
     height: 100px !important;
   }
 }
-
 @media screen and (max-width: 768px) {
   .separateur-svg {
     height: 60px !important;
   }
-
   .separateur-svg-anime {
     height: 70px !important;
   }
-
   /* Réduire l'intensité des animations sur mobile */
   .separateur-svg-anime svg {
     animation-duration: 6s !important;
   }
 }
-
 @media screen and (max-width: 480px) {
   .separateur-svg {
     height: 40px !important;
   }
-
   .separateur-svg-anime {
     height: 50px !important;
   }
-
   /* Animations plus légères pour les appareils plus petits */
   .separateur-svg-anime svg {
     animation-duration: 8s !important;
   }
 }
+/* ====================================
+   Composant Destinations - REST API Section
+   ====================================
 
-/* ================================ REST API Section - Style cohérent avec la charte graphique */
-
-/* Section destination */
+   Styles pour la section destinations avec filtre REST API
+   et accordéons pour l'affichage des contenus
+*/
+/* Section destination principale */
 .destination {
   padding: 3rem 0;
   background-color: #f5f5dc;
 }
-
 .destination__titre {
   text-align: center;
   margin-bottom: 3rem;
@@ -943,14 +1458,15 @@ body {
   color: rgb(186, 77, 29);
   font-weight: 600;
 }
-
 .destination__list {
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 1rem;
 }
 
-/* Liste des catégories - Style adapté à la charte */
+/* ====================================
+   Liste des catégories - Filtres
+   ====================================*/
 .list_categories {
   display: flex;
   justify-content: center;
@@ -960,7 +1476,6 @@ body {
   padding: 0;
   flex-wrap: wrap;
 }
-
 .list_categories li {
   background-color: #fefefe;
   padding: 0.8rem 1.5rem;
@@ -972,14 +1487,12 @@ body {
   color: #333;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
-
 .list_categories li:hover {
   background-color: rgb(188, 114, 82);
   color: white;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(186, 77, 29, 0.3);
 }
-
 .list_categories li.active {
   background-color: rgb(186, 77, 29);
   color: white;
@@ -988,7 +1501,10 @@ body {
   box-shadow: 0 4px 12px rgba(186, 77, 29, 0.4);
 }
 
-/* Accordéon - Style élégant adapté au thème */
+/* ====================================
+   Accordéon - Affichage des contenus
+   ====================================*/
+/* Mécanisme de l'accordéon */
 .accordeon__chk {
   display: none;
 }
@@ -1003,7 +1519,7 @@ body {
   max-height: 300px;
 }
 
-/* Label accordéon */
+/* Label accordéon - Header cliquable */
 .accordeon {
   display: block;
   background: linear-gradient(135deg, #fefefe 0%, #f5f5dc 100%);
@@ -1015,18 +1531,15 @@ body {
   transition: all 0.3s ease;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
-
 .accordeon:hover {
   background: linear-gradient(135deg, rgb(188, 114, 82) 0%, rgb(186, 77, 29) 100%);
   color: white;
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(186, 77, 29, 0.2);
 }
-
 .accordeon:hover h3 {
   color: white;
 }
-
 .accordeon h3 {
   margin: 0;
   font-size: 1.3rem;
@@ -1044,18 +1557,12 @@ body {
   margin-bottom: 1rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
-
-.accordeon__chk:checked ~ .accordeon__excerpt {
-  padding: 1.5rem;
-}
-
 .accordeon__excerpt p {
   margin: 0 0 1.5rem 0;
   line-height: 1.7;
   color: #333;
   font-size: 1rem;
 }
-
 .accordeon__excerpt a {
   display: inline-block;
   background: linear-gradient(135deg, rgb(186, 77, 29) 0%, rgb(188, 114, 82) 100%);
@@ -1067,7 +1574,6 @@ body {
   transition: all 0.3s ease;
   box-shadow: 0 2px 8px rgba(186, 77, 29, 0.3);
 }
-
 .accordeon__excerpt a:hover {
   background: linear-gradient(135deg, rgb(188, 114, 82) 0%, rgb(186, 77, 29) 100%);
   transform: translateY(-2px);
@@ -1081,49 +1587,52 @@ body {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
-
 .accordeon__chk:checked + .accordeon h3 {
   color: white;
 }
 
-/* Responsive */
+.accordeon__chk:checked ~ .accordeon__excerpt {
+  padding: 1.5rem;
+}
+
+/* ====================================
+   Responsive pour les destinations
+   ====================================*/
 @media screen and (max-width: 768px) {
   .list_categories {
     flex-direction: column;
     align-items: center;
     gap: 0.8rem;
   }
-
   .list_categories li {
     width: 80%;
     text-align: center;
   }
-
-  .destination__titre {
-    font-size: 2rem;
-  }
-
   .destination {
     padding: 2rem 0;
   }
+  .destination__titre {
+    font-size: 2rem;
+  }
 }
-
 @media screen and (max-width: 480px) {
   .destination__titre {
     font-size: 1.6rem;
   }
-
   .accordeon {
     padding: 1rem;
   }
-
   .accordeon h3 {
     font-size: 1.1rem;
   }
 }
+/* ====================================
+   Icônes sociales configurables
+   ====================================
 
-/* ================================ Icônes sociales configurables */
-
+   Styles pour les icônes sociales générées
+   par le Customizer (functions/mon-customizer.php)
+*/
 /* Container des icônes sociales */
 .icones-sociales {
   display: flex;
@@ -1133,7 +1642,9 @@ body {
   flex-wrap: wrap;
 }
 
-/* Styles individuels pour chaque icône */
+/* ====================================
+   Styles de base pour les icônes
+   ====================================*/
 .icone-sociale {
   display: inline-block;
   padding: 0.5rem;
@@ -1144,23 +1655,22 @@ body {
   backdrop-filter: blur(5px);
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
-
 .icone-sociale:hover {
   background-color: rgba(255, 255, 255, 0.2);
   transform: translateY(-2px) scale(1.1);
   box-shadow: 0 4px 15px rgba(245, 245, 220, 0.3);
 }
-
 .icone-sociale img {
   display: block;
   transition: all 0.3s ease;
 }
-
 .icone-sociale:hover img {
   filter: brightness(1.2);
 }
 
-/* Styles spécifiques pour certaines plateformes */
+/* ====================================
+   Styles spécifiques par plateforme
+   ====================================*/
 .icone-github:hover {
   background-color: rgba(33, 41, 60, 0.8);
 }
@@ -1189,140 +1699,24 @@ body {
   background: linear-gradient(45deg, #ff0050, #00f2ea);
 }
 
-/* Responsive pour les icônes sociales */
+/* ====================================
+   Responsive pour les icônes sociales
+   ====================================*/
 @media screen and (max-width: 768px) {
   .icones-sociales {
     gap: 0.8rem;
   }
-
   .icone-sociale {
     padding: 0.4rem;
   }
 }
-
 @media screen and (max-width: 480px) {
   .icones-sociales {
     gap: 0.6rem;
     justify-content: center;
   }
-
   .icone-sociale {
     padding: 0.3rem;
   }
 }
-
-/* ================================ Footer - Image de destination */
-
-/* Section destination dans le footer */
-.footer-destination {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-  padding: 1.5rem;
-  margin-bottom: 1rem;
-  backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.footer-destination__titre {
-  color: #f5f5dc;
-  font-size: 1.4rem;
-  margin-bottom: 1rem;
-  text-align: center;
-  font-weight: 600;
-}
-
-.footer-destination__contenu {
-  display: flex;
-  gap: 1.5rem;
-  align-items: flex-start;
-}
-
-.footer-destination__image {
-  flex: 0 0 120px;
-  width: 120px;
-}
-
-.footer-destination__image img {
-  width: 100%;
-  height: 120px;
-  object-fit: cover;
-  border-radius: 8px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.footer-destination__image a:hover img {
-  transform: scale(1.05);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-}
-
-.footer-destination__texte {
-  flex: 1;
-  color: #f5f5dc;
-}
-
-.footer-destination__texte p {
-  margin: 0 0 1rem 0;
-  line-height: 1.6;
-  font-size: 0.95rem;
-}
-
-.footer-destination__lien {
-  display: inline-block;
-  background: linear-gradient(135deg, #f5f5dc 0%, rgba(245, 245, 220, 0.8) 100%);
-  color: rgb(186, 77, 29);
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 0.9rem;
-  transition: all 0.3s ease;
-  border: 1px solid transparent;
-}
-
-.footer-destination__lien:hover {
-  background: #f5f5dc;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(245, 245, 220, 0.3);
-  color: rgb(186, 77, 29);
-  text-decoration: none;
-}
-
-/* Responsive pour l'image de destination */
-@media screen and (max-width: 768px) {
-  .footer-destination__contenu {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .footer-destination__image {
-    flex: none;
-    align-self: center;
-    width: 150px;
-  }
-
-  .footer-destination__image img {
-    width: 150px;
-    height: 150px;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .footer-destination {
-    padding: 1rem;
-  }
-
-  .footer-destination__titre {
-    font-size: 1.2rem;
-  }
-
-  .footer-destination__image {
-    width: 120px;
-  }
-
-  .footer-destination__image img {
-    width: 120px;
-    height: 120px;
-  }
-}
-
 /* ////////////////////////////////  animations *//*# sourceMappingURL=style.css.map */
