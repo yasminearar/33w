@@ -338,6 +338,65 @@ function theme_31w_customize_register($wp_customize)
             'step' => 2,
         ),
     ));
+
+    // NOUVELLE SECTION : Page d'erreur 404
+
+    // Section dédiée à la page 404
+    $wp_customize->add_section('section_404', array(
+        'title' => __('Page d\'erreur 404', 'theme_31w'),
+        'description' => __('Configuration de la page d\'erreur 404 personnalisée', 'theme_31w'),
+        'priority' => 50,
+    ));
+
+    // Champ : Image de fond par défaut
+    $wp_customize->add_setting('404_background_image', array(
+        'default' => get_template_directory_uri() . '/images/ilepalmier.jpg',
+        'sanitize_callback' => 'esc_url_raw',
+    ));
+
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, '404_background_image', array(
+        'label' => __('Image de fond', 'theme_31w'),
+        'description' => __('Image de fond pour la page d\'erreur 404', 'theme_31w'),
+        'section' => 'section_404',
+    )));
+
+    // Champ : Couleur d'arrière-plan des boutons et zone de recherche
+    $wp_customize->add_setting('404_background_color', array(
+        'default' => '#ba4d1d', // Couleur principale du thème
+        'sanitize_callback' => 'sanitize_hex_color',
+    ));
+
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, '404_background_color', array(
+        'label' => __('Couleur des boutons et recherche', 'theme_31w'),
+        'description' => __('Couleur d\'arrière-plan pour les boutons et la zone de recherche', 'theme_31w'),
+        'section' => 'section_404',
+    )));
+
+    // Champ : Titre de la page d'erreur
+    $wp_customize->add_setting('404_title', array(
+        'default' => __('Oups ! Page introuvable', 'theme_31w'),
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+
+    $wp_customize->add_control('404_title', array(
+        'label' => __('Titre de la page d\'erreur', 'theme_31w'),
+        'description' => __('Titre principal affiché sur la page 404', 'theme_31w'),
+        'section' => 'section_404',
+        'type' => 'text',
+    ));
+
+    // Champ : Message d'erreur
+    $wp_customize->add_setting('404_message', array(
+        'default' => __('La page que vous recherchez semble avoir pris des vacances ! Explorez nos destinations pour planifier votre prochain voyage.', 'theme_31w'),
+        'sanitize_callback' => 'sanitize_textarea_field',
+    ));
+
+    $wp_customize->add_control('404_message', array(
+        'label' => __('Message d\'erreur', 'theme_31w'),
+        'description' => __('Message descriptif affiché sous le titre', 'theme_31w'),
+        'section' => 'section_404',
+        'type' => 'textarea',
+    ));
 }
 
 add_action('customize_register', 'theme_31w_customize_register');
