@@ -953,4 +953,118 @@ body {
   }
 }
 
+/* ================================ Footer - Image de destination */
+
+/* Section destination dans le footer */
+.footer-destination {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.footer-destination__titre {
+  color: #f5f5dc;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+.footer-destination__contenu {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.footer-destination__image {
+  flex: 0 0 120px;
+  width: 120px;
+}
+
+.footer-destination__image img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.footer-destination__image a:hover img {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.footer-destination__texte {
+  flex: 1;
+  color: #f5f5dc;
+}
+
+.footer-destination__texte p {
+  margin: 0 0 1rem 0;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.footer-destination__lien {
+  display: inline-block;
+  background: linear-gradient(135deg, #f5f5dc 0%, rgba(245, 245, 220, 0.8) 100%);
+  color: rgb(186, 77, 29);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.footer-destination__lien:hover {
+  background: #f5f5dc;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(245, 245, 220, 0.3);
+  color: rgb(186, 77, 29);
+  text-decoration: none;
+}
+
+/* Responsive pour l'image de destination */
+@media screen and (max-width: 768px) {
+  .footer-destination__contenu {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-destination__image {
+    flex: none;
+    align-self: center;
+    width: 150px;
+  }
+
+  .footer-destination__image img {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .footer-destination {
+    padding: 1rem;
+  }
+
+  .footer-destination__titre {
+    font-size: 1.2rem;
+  }
+
+  .footer-destination__image {
+    width: 120px;
+  }
+
+  .footer-destination__image img {
+    width: 120px;
+    height: 120px;
+  }
+}
+
 /* ////////////////////////////////  animations *//*# sourceMappingURL=style.css.map */

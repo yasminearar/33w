@@ -255,4 +255,64 @@ function separateur_footer_anime($type = 'wave-flow', $vitesse = 'slow') {
     $couleur_secondaire = 'rgb(188, 114, 82)';
     separateur_svg_anime($type, $couleur_principale, $couleur_secondaire, '100px', $vitesse);
 }
+
+
+/**
+ * Affichage de l'image de destination dans le footer
+ * Récupère les données du Customizer et affiche l'image avec son contenu
+ */
+function afficher_destination_footer() {
+    // Vérifier si la fonctionnalité est activée
+    $destination_active = get_theme_mod('footer_destination_active', true);
+
+    if (!$destination_active) {
+        return;
+    }
+
+    // Récupérer les données du Customizer
+    $image_url = get_theme_mod('footer_destination_image', '');
+    $titre = get_theme_mod('footer_destination_titre', 'Destination du mois');
+    $description = get_theme_mod('footer_destination_description', 'Découvrez notre destination recommandée pour cette période.');
+    $lien = get_theme_mod('footer_destination_lien', '');
+
+    // Si aucune image n'est sélectionnée, ne rien afficher
+    if (empty($image_url)) {
+        return;
+    }
+
+    ?>
+    <div class="footer-destination">
+        <h3 class="footer-destination__titre"><?php echo esc_html($titre); ?></h3>
+
+        <div class="footer-destination__contenu">
+            <div class="footer-destination__image">
+                <?php if (!empty($lien)): ?>
+                    <a href="<?php echo esc_url($lien); ?>" target="_blank" rel="noopener">
+                        <img src="<?php echo esc_url($image_url); ?>"
+                             alt="<?php echo esc_attr($titre); ?>"
+                             loading="lazy">
+                    </a>
+                <?php else: ?>
+                    <img src="<?php echo esc_url($image_url); ?>"
+                         alt="<?php echo esc_attr($titre); ?>"
+                         loading="lazy">
+                <?php endif; ?>
+            </div>
+
+            <div class="footer-destination__texte">
+                <p><?php echo esc_html($description); ?></p>
+
+                <?php if (!empty($lien)): ?>
+                    <a href="<?php echo esc_url($lien); ?>"
+                       class="footer-destination__lien"
+                       target="_blank"
+                       rel="noopener">
+                        En savoir plus →
+                    </a>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
+    <?php
+}
 ?>

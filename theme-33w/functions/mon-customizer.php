@@ -143,7 +143,87 @@ function theme_31w_customize_register($wp_customize)
         'section' => 'footer_section',
         'type' => 'textarea',
     ));
+
+    // NOUVELLE FONCTIONNALITÉ : Image de destination pour le footer
+
+    // Champ : Activer l'image de destination
+    $wp_customize->add_setting('footer_destination_active', array(
+        'default' => true,
+        'sanitize_callback' => function($value) {
+            return (bool) $value;
+        }
+    ));
+
+    $wp_customize->add_control('footer_destination_active', array(
+        'label' => __('Afficher une image de destination', 'theme_31w'),
+        'description' => __('Activer l\'affichage d\'une image de destination dans le footer', 'theme_31w'),
+        'section' => 'footer_section',
+        'type' => 'checkbox',
+    ));
+
+    // Champ : Sélection de l'image de destination
+    $wp_customize->add_setting('footer_destination_image', array(
+        'default' => '',
+        'sanitize_callback' => 'esc_url_raw',
+    ));
+
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'footer_destination_image', array(
+        'label' => __('Image de destination', 'theme_31w'),
+        'description' => __('Choisissez une image de destination à afficher dans le footer', 'theme_31w'),
+        'section' => 'footer_section',
+        'active_callback' => function() {
+            return get_theme_mod('footer_destination_active', true);
+        }
+    )));
+
+    // Champ : Titre de la destination
+    $wp_customize->add_setting('footer_destination_titre', array(
+        'default' => __('Destination du mois', 'theme_31w'),
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+
+    $wp_customize->add_control('footer_destination_titre', array(
+        'label' => __('Titre de la destination', 'theme_31w'),
+        'description' => __('Titre affiché au-dessus de l\'image de destination', 'theme_31w'),
+        'section' => 'footer_section',
+        'type' => 'text',
+        'active_callback' => function() {
+            return get_theme_mod('footer_destination_active', true);
+        }
+    ));
+
+    // Champ : Description de la destination
+    $wp_customize->add_setting('footer_destination_description', array(
+        'default' => __('Découvrez notre destination recommandée pour cette période.', 'theme_31w'),
+        'sanitize_callback' => 'sanitize_textarea_field',
+    ));
+
+    $wp_customize->add_control('footer_destination_description', array(
+        'label' => __('Description de la destination', 'theme_31w'),
+        'description' => __('Courte description de la destination sélectionnée', 'theme_31w'),
+        'section' => 'footer_section',
+        'type' => 'textarea',
+        'active_callback' => function() {
+            return get_theme_mod('footer_destination_active', true);
+        }
+    ));
+
+    // Champ : Lien vers la destination
+    $wp_customize->add_setting('footer_destination_lien', array(
+        'default' => '',
+        'sanitize_callback' => 'esc_url_raw',
+    ));
+
+    $wp_customize->add_control('footer_destination_lien', array(
+        'label' => __('Lien vers la destination', 'theme_31w'),
+        'description' => __('URL vers la page de la destination (optionnel)', 'theme_31w'),
+        'section' => 'footer_section',
+        'type' => 'url',
+        'active_callback' => function() {
+            return get_theme_mod('footer_destination_active', true);
+        }
+    ));
 }
 
-add_action('customize_register', 'theme_31w_customize_register');    
+add_action('customize_register', 'theme_31w_customize_register');
 

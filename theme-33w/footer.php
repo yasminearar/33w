@@ -30,6 +30,10 @@ separateur_footer_anime('wave-flow', 'slow'); ?>
               <p>
                 Notre mission est d'inspirer et d'informer nos membres sur des destinations de voyage qui répondent à leurs attentes. Nous favorisons les échanges et le partage d’expériences à travers des activités sociales variées, telles que des rencontres, des conférences et des dîners : <?php echo $footer_mission; ?></p>
             </div>
+            <!-- NOUVELLE SECTION : Image de destination -->
+            <div class="piedpage__destination">
+                <?php afficher_destination_footer(); ?>
+            </div>
         </section>
         <section class="piedpage__ligne-2">
             <div class="piedpage__icone">
