@@ -4,7 +4,9 @@ $footer_couleur = "#b34a1d";
 $footer_adresse = get_theme_mod('footer_adresse', '3800, Sherbrook est, Montréal, Québec, Canada, H1X 2A2');
 $footer_telephone = get_theme_mod('footer_telephone', '514-254-7131');
 $footer_mission = get_theme_mod('footer_mission', "Notre mission est d'inspirer et d'informer nos membres...");
-vague("#f5f5dc", $footer_couleur); ?>
+
+// Séparateur SVG animé pour le footer (BONUS)
+separateur_footer_anime('wave-flow', 'slow'); ?>
 <footer class="piedpage" style="background-color: <?= $footer_couleur ?>;">
     <div class="global">
         <section class="piedpage__ligne-1">

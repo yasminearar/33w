@@ -680,7 +680,86 @@ body {
   color: #444;
 }
 
-/* ================================ REST API Section */
+/* ================================ Séparateurs SVG */
+
+/* Styles de base pour tous les séparateurs */
+.separateur-svg {
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  padding: 0;
+}
+
+/* Séparateurs SVG animés pour le footer */
+.separateur-svg-anime {
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Animation de flux de vagues */
+@keyframes wave-flow {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+/* Animation de pulsation */
+@keyframes wave-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+}
+
+/* Animation de particules flottantes */
+@keyframes float-particles {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(-10px) rotate(180deg);
+    opacity: 1;
+  }
+}
+
+/* Responsive pour les séparateurs */
+@media screen and (max-width: 768px) {
+  .separateur-svg {
+    height: 60px !important;
+  }
+
+  .separateur-svg-anime {
+    height: 60px !important;
+  }
+
+  /* Réduire l'intensité des animations sur mobile */
+  .separateur-svg-anime svg {
+    animation-duration: 6s !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .separateur-svg {
+    height: 40px !important;
+  }
+
+  .separateur-svg-anime {
+    height: 50px !important;
+  }
+}
+
+/* ================================ REST API Section - Style cohérent avec la charte graphique */
 
 /* Section destination */
 .destination {

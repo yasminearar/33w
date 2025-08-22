@@ -5,6 +5,10 @@
 
         <?php get_template_part("gabarit/hero"); ?>
     </section>
+
+    <!-- Séparateur SVG entre hero et formulaire -->
+<?php separateur_theme('wave', '80px', false); ?>
+
     <section class="formulaire">
         <form class="formulaire__formulaire">
             <input class="formulaire__champ" type="text" placeholder="Écrivez votre nom" />
@@ -15,12 +19,18 @@
         </form>
     </section>
 
+    <!-- Séparateur SVG entre formulaire et destination -->
+<?php separateur_theme('curve', '100px', true); ?>
+
     <!-- section rest-api - identique au thème de référence -->
     <section class="destination">
         <?php extraire_list_categories("destination"); ?>
         <h2 class="destination__titre">Articles de la catégorie</h2>
         <div class="destination__list"></div>
     </section>
+
+    <!-- Séparateur SVG entre destination et populaire -->
+<?php separateur_theme('wave-double', '120px', false); ?>
 
     <section class="populaire">
         <div class="populaire__contenu">
