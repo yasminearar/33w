@@ -1,0 +1,103 @@
+/* ====================================
+   Icônes sociales configurables
+   ====================================
+   
+   Styles pour les icônes sociales générées
+   par le Customizer (functions/mon-customizer.php)
+*/
+
+/* Container des icônes sociales */
+.icones-sociales {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* ====================================
+   Styles de base pour les icônes
+   ====================================*/
+
+.icone-sociale {
+  display: inline-block;
+  padding: 0.5rem;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px) scale(1.1);
+    box-shadow: 0 4px 15px rgba(245, 245, 220, 0.3);
+  }
+
+  img {
+    display: block;
+    transition: all 0.3s ease;
+  }
+
+  &:hover img {
+    filter: brightness(1.2);
+  }
+}
+
+/* ====================================
+   Styles spécifiques par plateforme
+   ====================================*/
+
+.icone-github:hover {
+  background-color: rgba(33, 41, 60, 0.8);
+}
+
+.icone-facebook:hover {
+  background-color: rgba(24, 119, 242, 0.8);
+}
+
+.icone-instagram:hover {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+.icone-twitter:hover {
+  background-color: rgba(29, 161, 242, 0.8);
+}
+
+.icone-linkedin:hover {
+  background-color: rgba(0, 119, 181, 0.8);
+}
+
+.icone-youtube:hover {
+  background-color: rgba(255, 0, 0, 0.8);
+}
+
+.icone-tiktok:hover {
+  background: linear-gradient(45deg, #ff0050, #00f2ea);
+}
+
+/* ====================================
+   Responsive pour les icônes sociales
+   ====================================*/
+
+@media screen and (max-width: 768px) {
+  .icones-sociales {
+    gap: 0.8rem;
+  }
+
+  .icone-sociale {
+    padding: 0.4rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .icones-sociales {
+    gap: 0.6rem;
+    justify-content: center;
+  }
+
+  .icone-sociale {
+    padding: 0.3rem;
+  }
+}

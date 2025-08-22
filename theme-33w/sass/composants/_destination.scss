@@ -1,0 +1,209 @@
+/* ====================================
+   Composant Destinations - REST API Section
+   ====================================
+   
+   Styles pour la section destinations avec filtre REST API
+   et accordéons pour l'affichage des contenus
+*/
+
+/* Section destination principale */
+.destination {
+  padding: 3rem 0;
+  background-color: #f5f5dc;
+
+  &__titre {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+    color: rgb(186, 77, 29);
+    font-weight: 600;
+  }
+
+  &__list {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+}
+
+/* ====================================
+   Liste des catégories - Filtres
+   ====================================*/
+
+.list_categories {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  gap: 1.2rem;
+  margin: 0 0 3rem 0;
+  padding: 0;
+  flex-wrap: wrap;
+
+  li {
+    background-color: #fefefe;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    font-weight: 500;
+    color: #333;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+      background-color: rgb(188, 114, 82);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(186, 77, 29, 0.3);
+    }
+
+    &.active {
+      background-color: rgb(186, 77, 29);
+      color: white;
+      border-color: rgb(186, 77, 29);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(186, 77, 29, 0.4);
+    }
+  }
+}
+
+/* ====================================
+   Accordéon - Affichage des contenus
+   ====================================*/
+
+/* Mécanisme de l'accordéon */
+.accordeon__chk {
+  display: none;
+}
+
+.accordeon__excerpt {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-in-out;
+}
+
+.accordeon__chk:checked ~ .accordeon__excerpt {
+  max-height: 300px;
+}
+
+/* Label accordéon - Header cliquable */
+.accordeon {
+  display: block;
+  background: linear-gradient(135deg, #fefefe 0%, #f5f5dc 100%);
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1px solid rgb(188, 114, 82);
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+  &:hover {
+    background: linear-gradient(135deg, rgb(188, 114, 82) 0%, rgb(186, 77, 29) 100%);
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(186, 77, 29, 0.2);
+
+    h3 {
+      color: white;
+    }
+  }
+
+  h3 {
+    margin: 0;
+    font-size: 1.3rem;
+    color: rgb(186, 77, 29);
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+}
+
+/* Contenu de l'accordéon */
+.accordeon__excerpt {
+  background-color: #fefefe;
+  border: 1px solid rgb(188, 114, 82);
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+  p {
+    margin: 0 0 1.5rem 0;
+    line-height: 1.7;
+    color: #333;
+    font-size: 1rem;
+  }
+
+  a {
+    display: inline-block;
+    background: linear-gradient(135deg, rgb(186, 77, 29) 0%, rgb(188, 114, 82) 100%);
+    color: white;
+    padding: 0.8rem 1.8rem;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(186, 77, 29, 0.3);
+
+    &:hover {
+      background: linear-gradient(135deg, rgb(188, 114, 82) 0%, rgb(186, 77, 29) 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(186, 77, 29, 0.4);
+    }
+  }
+}
+
+/* Animation pour l'accordéon ouvert */
+.accordeon__chk:checked + .accordeon {
+  background: linear-gradient(135deg, rgb(186, 77, 29) 0%, rgb(188, 114, 82) 100%);
+  color: white;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+
+  h3 {
+    color: white;
+  }
+}
+
+.accordeon__chk:checked ~ .accordeon__excerpt {
+  padding: 1.5rem;
+}
+
+/* ====================================
+   Responsive pour les destinations
+   ====================================*/
+
+@media screen and (max-width: 768px) {
+  .list_categories {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+
+    li {
+      width: 80%;
+      text-align: center;
+    }
+  }
+
+  .destination {
+    padding: 2rem 0;
+
+    &__titre {
+      font-size: 2rem;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .destination__titre {
+    font-size: 1.6rem;
+  }
+
+  .accordeon {
+    padding: 1rem;
+
+    h3 {
+      font-size: 1.1rem;
+    }
+  }
+}
