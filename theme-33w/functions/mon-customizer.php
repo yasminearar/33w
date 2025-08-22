@@ -223,6 +223,121 @@ function theme_31w_customize_register($wp_customize)
             return get_theme_mod('footer_destination_active', true);
         }
     ));
+
+    // NOUVELLE SECTION : Réseaux sociaux configurables
+
+    // Section dédiée aux réseaux sociaux
+    $wp_customize->add_section('reseaux_sociaux_section', array(
+        'title' => __('Réseaux Sociaux', 'theme_31w'),
+        'description' => __('Configurez les icônes et liens des réseaux sociaux qui apparaissent dans le footer', 'theme_31w'),
+        'priority' => 45,
+    ));
+
+    // Liste des réseaux sociaux disponibles
+    $reseaux_sociaux = array(
+        'github' => array(
+            'label' => 'GitHub',
+            'default_url' => 'https://github.com/yasminearar/33w/tree/tp2',
+            'icon' => 'github'
+        ),
+        'facebook' => array(
+            'label' => 'Facebook',
+            'default_url' => 'https://facebook.com',
+            'icon' => 'facebook'
+        ),
+        'instagram' => array(
+            'label' => 'Instagram',
+            'default_url' => 'https://instagram.com',
+            'icon' => 'instagram'
+        ),
+        'twitter' => array(
+            'label' => 'Twitter/X',
+            'default_url' => 'https://twitter.com',
+            'icon' => 'twitter'
+        ),
+        'linkedin' => array(
+            'label' => 'LinkedIn',
+            'default_url' => 'https://linkedin.com',
+            'icon' => 'linkedin'
+        ),
+        'youtube' => array(
+            'label' => 'YouTube',
+            'default_url' => 'https://youtube.com',
+            'icon' => 'youtube'
+        ),
+        'tiktok' => array(
+            'label' => 'TikTok',
+            'default_url' => 'https://tiktok.com',
+            'icon' => 'tiktok'
+        )
+    );
+
+    // Créer les contrôles pour chaque réseau social
+    foreach ($reseaux_sociaux as $reseau_id => $reseau_data) {
+
+        // Champ : Activer le réseau social
+        $wp_customize->add_setting("social_{$reseau_id}_active", array(
+            'default' => ($reseau_id === 'github') ? true : false, // GitHub activé par défaut
+            'sanitize_callback' => function($value) {
+                return (bool) $value;
+            }
+        ));
+
+        $wp_customize->add_control("social_{$reseau_id}_active", array(
+            'label' => sprintf(__('Afficher %s', 'theme_31w'), $reseau_data['label']),
+            'section' => 'reseaux_sociaux_section',
+            'type' => 'checkbox',
+        ));
+
+        // Champ : URL du réseau social
+        $wp_customize->add_setting("social_{$reseau_id}_url", array(
+            'default' => $reseau_data['default_url'],
+            'sanitize_callback' => 'esc_url_raw',
+        ));
+
+        $wp_customize->add_control("social_{$reseau_id}_url", array(
+            'label' => sprintf(__('URL %s', 'theme_31w'), $reseau_data['label']),
+            'description' => sprintf(__('Lien vers votre profil %s', 'theme_31w'), $reseau_data['label']),
+            'section' => 'reseaux_sociaux_section',
+            'type' => 'url',
+            'active_callback' => function() use ($reseau_id) {
+                return get_theme_mod("social_{$reseau_id}_active", false);
+            }
+        ));
+    }
+
+    // Paramètres d'affichage des icônes
+    $wp_customize->add_setting('social_couleur', array(
+        'default' => '#f5f5dc',
+        'sanitize_callback' => 'sanitize_hex_color',
+    ));
+
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'social_couleur', array(
+        'label' => __('Couleur des icônes', 'theme_31w'),
+        'description' => __('Couleur par défaut des icônes de réseaux sociaux', 'theme_31w'),
+        'section' => 'reseaux_sociaux_section',
+    )));
+
+    // Taille des icônes
+    $wp_customize->add_setting('social_taille', array(
+        'default' => 32,
+        'sanitize_callback' => function($value) {
+            $n = absint($value);
+            return ($n >= 16 && $n <= 64) ? $n : 32;
+        }
+    ));
+
+    $wp_customize->add_control('social_taille', array(
+        'label' => __('Taille des icônes', 'theme_31w'),
+        'description' => __('Taille des icônes en pixels (16-64)', 'theme_31w'),
+        'section' => 'reseaux_sociaux_section',
+        'type' => 'number',
+        'input_attrs' => array(
+            'min' => 16,
+            'max' => 64,
+            'step' => 2,
+        ),
+    ));
 }
 
 add_action('customize_register', 'theme_31w_customize_register');

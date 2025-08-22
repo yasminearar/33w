@@ -1,19 +1,4 @@
-<?php 
-function icone_sociaux($couleur) {
-    $couleur = substr($couleur, 1); // pour enlever le # de la position 0 on extrait la couleur
-    ?>
-    <a class="sociaux" href="https://github.com/yasminearar">
-        <img src="https://s2.svgbox.net/social.svg?ic=github&color=<?= $couleur ?>" width="32" height="32">
-    </a>
-    <a class="sociaux" href="https://facebook.com">
-        <img src="https://s2.svgbox.net/social.svg?ic=facebook&color=<?= $couleur ?>" width="32" height="32">
-    </a>
-    <a class="sociaux" href="https://instagram.com">
-        <img src="https://s2.svgbox.net/social.svg?ic=instagram&color=<?= $couleur ?>" width="32" height="32">
-    </a>
-    <?php
-} 
-
+<?php
 
 /**
  * générateur de vague pour séparer deux sections
@@ -114,7 +99,6 @@ function separateur_theme($type = 'wave', $hauteur = '100px', $inverse = false) 
 }
 
 /**
- * Fonction identique au thème de référence 33w-ete-25-tp2
  * Extrait la liste des catégories pour l'affichage REST API
  */
 function extraire_list_categories($nom_categorie)
@@ -314,5 +298,76 @@ function afficher_destination_footer() {
         </div>
     </div>
     <?php
+}
+
+/**
+ * NOUVELLE FONCTION : Génération des icônes sociales configurables via Customizer
+ * Remplace l'ancienne fonction icone_sociaux() statique
+ */
+function icones_sociales_customizer() {
+    // Liste des réseaux sociaux disponibles (doit correspondre au Customizer)
+    $reseaux_sociaux = array(
+        'github' => 'github',
+        'facebook' => 'facebook',
+        'instagram' => 'instagram',
+        'twitter' => 'twitter',
+        'linkedin' => 'linkedin',
+        'youtube' => 'youtube',
+        'tiktok' => 'tiktok'
+    );
+
+    // Récupérer les paramètres globaux
+    $couleur = get_theme_mod('social_couleur', '#f5f5dc');
+    $taille = get_theme_mod('social_taille', 32);
+
+    // Convertir la couleur hex en format URL (sans #)
+    $couleur_url = ltrim($couleur, '#');
+
+    $icones_actives = false; // Pour vérifier s'il y a des icônes à afficher
+
+    ob_start(); // Commencer la capture de sortie
+    ?>
+    <div class="icones-sociales">
+        <?php
+        foreach ($reseaux_sociaux as $reseau_id => $icon_name) {
+            $actif = get_theme_mod("social_{$reseau_id}_active", false);
+            $url = get_theme_mod("social_{$reseau_id}_url", '');
+
+            if ($actif && !empty($url)) {
+                $icones_actives = true;
+                ?>
+                <a href="<?php echo esc_url($url); ?>"
+                   class="icone-sociale icone-<?php echo esc_attr($reseau_id); ?>"
+                   target="_blank"
+                   rel="noopener"
+                   title="<?php echo esc_attr(ucfirst($reseau_id)); ?>">
+                    <img src="https://s2.svgbox.net/social.svg?ic=<?php echo esc_attr($icon_name); ?>&color=<?php echo esc_attr($couleur_url); ?>"
+                         width="<?php echo esc_attr($taille); ?>"
+                         height="<?php echo esc_attr($taille); ?>"
+                         alt="<?php echo esc_attr(ucfirst($reseau_id)); ?>"
+                         loading="lazy">
+                </a>
+                <?php
+            }
+        }
+        ?>
+    </div>
+    <?php
+
+    $output = ob_get_clean(); // Récupérer le contenu capturé
+
+    // Afficher seulement s'il y a des icônes actives
+    if ($icones_actives) {
+        echo $output;
+    }
+}
+
+/**
+ * Fonction de compatibilité - maintient l'ancienne interface mais utilise la nouvelle logique
+ * @param string $couleur - Couleur pour compatibilité (sera ignorée, utilise le Customizer)
+ */
+function icone_sociaux($couleur = null) {
+    // Rediriger vers la nouvelle fonction
+    icones_sociales_customizer();
 }
 ?>
